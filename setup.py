@@ -3,9 +3,6 @@ import setuptools
 with open('README.md', 'r') as f:
     LONG_DESCRIPTION = f.read()
 
-with open('requirements.txt', encoding='utf-8') as f:
-    INSTALL_REQUIRES = [l.strip() for l in f.readlines() if l]
-
 setuptools.setup(
     name='microstructural-fingerprinting-tools',
     version='0.0.1',
@@ -22,6 +19,5 @@ setuptools.setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
     ],
-    install_requires=INSTALL_REQUIRES,
     python_requires='>=3.6',
 )

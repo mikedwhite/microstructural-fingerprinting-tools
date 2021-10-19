@@ -311,7 +311,7 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
     return fingerprint
 
 
-def get_fingerprints_h012(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None):
+def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None):
     """Generate fingerprints for whole images based on h012 framework.
 
     Parameters
@@ -394,7 +394,7 @@ def get_fingerprints_cnn(input_path, micro_list, feature_generator, cnn='alexnet
     nimage = len(micro_list)
     fingerprints = []
 
-    with IncrementalBar('', max=nimage, suffix='%(percent).1f%% - %(eta)ds') as bar:
+    with IncrementalBar('Generating fingerprints', max=nimage, suffix='%(percent).1f%% - %(eta)ds') as bar:
 
         for n in range(nimage):
             image = io.imread(f'{input_path}micrographs/{micro_list[n]}')

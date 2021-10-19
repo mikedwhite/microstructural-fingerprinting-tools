@@ -4,8 +4,17 @@ Python package for constructing compressed representations of microstructural im
 
 ## Example
 
-Example provided operates on a 3-class subset of the Carnegie Melon University Ultrahigh Carbon Steel (CMU-UHCS)
+Examples provided operate on a 3-class subset of the Carnegie Mellon University ultrahigh carbon steel (CMU-UHCS)
 dataset, which can be downloaded at https://materialsdata.nist.gov/handle/11256/940.
+
+Two main approaches for feature extraction are considered. Namely, visual bag of words (VBOW) and convolutional neural
+networks (CNN). There are two options for CNN fingerprints (flattening or max-pooling of final convolution layer into
+single vector). `cnn_fingerprints.py` provides an example with either AlexNet or VGG for feature extraction and
+flattening or max-pooling for fingerprint construction.
+
+VBOW operates on base features. These can either come from keypoint-based methods, such as the scale-invariant feature
+transform (SIFT), or from CNN features output from the final convolution layer. `vbow_fingerprints.py` provides an
+example with either SIFT, SURF or CNN base features. Number of clusters and order of fingerprints can also be specified.
 
 
 ## Documentation
@@ -22,7 +31,7 @@ Ireland (SFI) grant 18/EPSRC-CDT/3584.
 
 ## License (Modified BSD)
 
-Copyright (c) 2020, University of Manchester.
+Copyright (c) 2021, University of Manchester.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
