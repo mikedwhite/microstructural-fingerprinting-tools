@@ -22,7 +22,7 @@ Examples
 ========
 
 Examples provided operate on a 3-class subset of the Carnegie Mellon University ultrahigh carbon steel (CMU-UHCS)
-dataset, which can be downloaded at https://materialsdata.nist.gov/handle/11256/940.
+dataset, which can be downloaded `here <https://materialsdata.nist.gov/handle/11256/940>`.
 
 Two main approaches for feature extraction are considered. Namely, visual bag of words (VBOW) and convolutional neural
 networks (CNN). There are two options for CNN fingerprints (flattening or max-pooling of final convolution layer into
