@@ -8,7 +8,7 @@ The supporting paper is currently still in the works.
 Installation
 ============
 
-This package is not currently published on PyPI and, as such, can only be downloaded from the source, `here <https://github.com/mikedwhite/microstructural-fingerprinting-tools>`.
+This package is not currently published on PyPI and, as such, can only be downloaded from the source, `here <https://github.com/mikedwhite/microstructural-fingerprinting-tools>`_.
 It is then recommended to either install by running the command
 
 .. code-block:: console
@@ -22,7 +22,7 @@ Examples
 ========
 
 Examples provided operate on a 3-class subset of the Carnegie Mellon University ultrahigh carbon steel (CMU-UHCS)
-dataset, which can be downloaded `here <https://materialsdata.nist.gov/handle/11256/940>`.
+dataset, which can be downloaded `here <https://materialsdata.nist.gov/handle/11256/940>`_.
 
 Two main approaches for feature extraction are considered. Namely, visual bag of words (VBOW) and convolutional neural
 networks (CNN). There are two options for CNN fingerprints (flattening or max-pooling of final convolution layer into
