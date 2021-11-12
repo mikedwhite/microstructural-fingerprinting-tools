@@ -1,6 +1,11 @@
-"""Enables SIFT H012V, SURF H012V, CNN H012V."""
+"""Enables SIFT H012V, SURF H012V, CNN H012V.
+
+USAGE: Execute this script from within the `examples` directory.
+Run via terminal for progress bars.
+"""
 
 
+import os
 import pickle
 
 import numpy as np
@@ -16,6 +21,7 @@ from data_proc_dataset2 import cross_validation_split
 if __name__ == '__main__':
 
     params = {'input_path': 'data/dataset2/',
+              'output_path': 'out/',
               'nclass': 3,
               'nclust': 10,
               'feature_generator': generate_feature_surf,
@@ -31,11 +37,12 @@ if __name__ == '__main__':
               # 'order': 'h2v',
               'niter': 10,
               'ssl_ratio': .05,
-              # 'svm_kernel': chi2_kernel
-              'svm_kernel': 'linear'
+              'svm_kernel': chi2_kernel
+              # 'svm_kernel': 'linear'
               }
 
     INPUT_PATH = params['input_path']
+    OUTPUT_PATH = params['output_path']
     NCLASS = params['nclass']
     NCLUST = params['nclust']
     FEATURE_GENERATOR = params['feature_generator']
@@ -46,26 +53,29 @@ if __name__ == '__main__':
     SVM_KERNEL = params['svm_kernel']
 
     ACCURACY_svm = np.zeros(NITER)
-    # ACCURACY_rf = np.zeros(NITER)
+    ACCURACY_rf = np.zeros(NITER)
     ACCURACY_ulk = np.zeros(NITER)
     ACCURACY_uls = np.zeros(NITER)
     ACCURACY_lap = np.zeros(NITER)
     ACCURACY_poi = np.zeros(NITER)
+
+    if not os.path.exists(OUTPUT_PATH):
+        os.mkdir(OUTPUT_PATH)
 
     with open(f'{INPUT_PATH}micro_list.pkl', 'rb') as f:
         micro_list = pickle.load(f)
     with open(f'{INPUT_PATH}label_list.pkl', 'rb') as f:
         label_list = pickle.load(f)
 
-    # dict = get_dict(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN)
-    # kmeans = learn_labeling(dict, NCLUST)
-    # pickle.dump(kmeans, open('fingerprints/surf_h2v_clust.sav', 'wb'))
-    with open('fingerprints/surf_h2v_clust.sav', 'rb') as f:
+    dict = get_dict(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN)
+    kmeans = learn_labeling(dict, NCLUST)
+    pickle.dump(kmeans, open(f'{OUTPUT_PATH}/clust_model.sav', 'wb'))
+    with open(f'{OUTPUT_PATH}/clust_model.sav', 'rb') as f:
         kmeans = pickle.load(f)
 
     fingerprints = get_fingerprints_vbow(INPUT_PATH, micro_list, kmeans, FEATURE_GENERATOR, ORDER, CNN)
-    np.save(f'fingerprints/surf_{ORDER}.npy', fingerprints)
-    fingerprints = np.load(f'fingerprints/surf_{ORDER}.npy')
+    np.save(f'{OUTPUT_PATH}/vbow_fingerprints.npy', fingerprints)
+    fingerprints = np.load(f'{OUTPUT_PATH}/vbow_fingerprints.npy')
 
     micro_list_train_stack, micro_list_ttest_stack, label_list_train_stack, label_list_ttest_stack =\
         cross_validation_split(micro_list, label_list, NITER)
@@ -83,20 +93,20 @@ if __name__ == '__main__':
         xttest = fingerprints[micro_list_ttest, :]
 
         accuracy_svm = train_svm(xtrain, xttest, label_list_train, label_list_ttest, kernel=SVM_KERNEL)
-        # accuracy_rf = train_rf(xtrain, xttest, label_list_train, label_list_ttest)
+        accuracy_rf = train_rf(xtrain, xttest, label_list_train, label_list_ttest)
         accuracy_ulk = train_ul(xtrain, xttest, label_list_ttest, NCLASS, method='kmeans')
         accuracy_uls = train_ul(xtrain, xttest, label_list_ttest, NCLASS, method='spectral')
         accuracy_lap, accuracy_poi = train_ssl(xtrain, xttest, label_list_train, label_list_ttest, SSL_RATIO)
 
         print(f'SVM accuracy score: {accuracy_svm:.3f}')
-        # print(f'Random forest accuracy score: {accuracy_rf:.3f}')
+        print(f'Random forest accuracy score: {accuracy_rf:.3f}')
         print(f'k-means unsupervised accuracy score: {accuracy_ulk:.3f}')
         print(f'Spectral unsupervised accuracy score: {accuracy_uls:.3f}')
         print(f'SSL Laplace accuracy score: {accuracy_lap:.3f}')
         print(f'SSL Poisson accuracy score: {accuracy_poi:.3f}')
 
         ACCURACY_svm[ITER] = accuracy_svm
-        # ACCURACY_rf[ITER] = accuracy_rf
+        ACCURACY_rf[ITER] = accuracy_rf
         ACCURACY_ulk[ITER] = accuracy_ulk
         ACCURACY_uls[ITER] = accuracy_uls
         ACCURACY_lap[ITER] = accuracy_lap
@@ -104,7 +114,7 @@ if __name__ == '__main__':
 
     print(params)
     print(f'CV SVM accuracy score: {np.mean(ACCURACY_svm):.3f} +- {np.std(ACCURACY_svm):.4f}')
-    # print(f'CV Random forest accuracy score: {np.mean(ACCURACY_rf):.3f} +- {np.std(ACCURACY_rf):.4f}')
+    print(f'CV Random forest accuracy score: {np.mean(ACCURACY_rf):.3f} +- {np.std(ACCURACY_rf):.4f}')
     print(f'CV k-means unsupervised accuracy score: {np.mean(ACCURACY_ulk):.3f} +- {np.std(ACCURACY_ulk):.4f}')
     print(f'CV spectral unsupervised accuracy score: {np.mean(ACCURACY_uls):.3f} +- {np.std(ACCURACY_uls):.4f}')
     print(f'CV SSL Laplace accuracy score: {np.mean(ACCURACY_lap):.3f} +- {np.std(ACCURACY_lap):.4f}')

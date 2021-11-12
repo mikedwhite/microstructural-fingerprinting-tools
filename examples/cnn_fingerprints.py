@@ -1,6 +1,11 @@
-"""Enables CNN flattened final convolution layer and CNN max-pooled final convolution layer."""
+"""Enables CNN flattened final convolution layer and CNN max-pooled final convolution layer.
+
+USAGE: Execute this script from within the `examples` directory.
+Run via terminal for progress bars.
+"""
 
 
+import os
 import pickle
 
 import numpy as np
@@ -15,6 +20,7 @@ from data_proc_dataset2 import cross_validation_split
 if __name__ == '__main__':
 
     params = {'input_path': 'data/dataset2/',
+              'output_path': 'out/',
               'nclass': 3,
               # 'feature_generator': generate_feature_cnn_flatten,
               'feature_generator': generate_feature_cnn_maxpool,
@@ -24,6 +30,7 @@ if __name__ == '__main__':
               'ssl_ratio': .05}
 
     INPUT_PATH = params['input_path']
+    OUTPUT_PATH = params['output_path']
     NCLASS = params['nclass']
     FEATURE_GENERATOR = params['feature_generator']
     CNN = params['cnn']
@@ -37,12 +44,17 @@ if __name__ == '__main__':
     ACCURACY_lap = np.zeros(NITER)
     ACCURACY_poi = np.zeros(NITER)
 
+    if not os.path.exists(OUTPUT_PATH):
+        os.mkdir(OUTPUT_PATH)
+
     with open(f'{INPUT_PATH}micro_list.pkl', 'rb') as f:
         micro_list = pickle.load(f)
     with open(f'{INPUT_PATH}label_list.pkl', 'rb') as f:
         label_list = pickle.load(f)
 
     fingerprints = get_fingerprints_cnn(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN)
+    np.save(f'{OUTPUT_PATH}/cnn_fingerprints.npy', fingerprints)
+    fingerprints = np.load(f'{OUTPUT_PATH}/cnn_fingerprints.npy')
 
     micro_list_train_stack, micro_list_ttest_stack, label_list_train_stack, label_list_ttest_stack =\
         cross_validation_split(micro_list, label_list, NITER)
