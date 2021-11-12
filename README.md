@@ -1,3 +1,7 @@
+[![Documentation Status](https://readthedocs.org/projects/microstructural-fingerprinting-tools/badge/?version=latest)](https://microstructural-fingerprinting-tools.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+
 # Microstructural Fingerprinting Tools
 Python package for constructing compressed representations of microstructural image data.
 
