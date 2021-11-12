@@ -2,6 +2,7 @@ import numpy as np
 from progress.bar import IncrementalBar
 from skimage import io
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 
 
 def get_dict(input_path, micro_list, feature_generator, cnn=None):
@@ -183,15 +184,16 @@ def single_image_fingerprint_h2(xfeat, kmeans):
     nclust = kmeans.cluster_centers_.shape[0]
     fingerprint = np.zeros((nclust, dimv, dimv))
 
-    fingerprint_h1 = np.reshape(single_image_fingerprint_h1(fingerprint, kmeans), (nclust, dimv))
+    fingerprint_h1 = np.reshape(single_image_fingerprint_h1(xfeat, kmeans), (nclust, dimv))
 
     for kclust in range(nclust):
         args = np.argwhere(xlab == kclust)[:, 0]
         if args.shape[0] > 0:
             J_k = args.shape[0]
             for arg in args:
-                fingerprint[kclust, :, :] = fingerprint[kclust, :, :] + np.outer(
-                    xfeat[arg, :] - fingerprint_h1[kclust, :], xfeat[arg, :] - fingerprint_h1[kclust, :])
+                fingerprint[kclust, :, :] = fingerprint[kclust, :, :] +\
+                                            np.outer(xfeat[arg, :] - fingerprint_h1[kclust, :],
+                                                     xfeat[arg, :] - fingerprint_h1[kclust, :])
             fingerprint[kclust, :, :] = (1 / J_k) * fingerprint[kclust, :, :]
 
     fingerprint_diag = np.zeros((nclust, dimv))
@@ -199,10 +201,10 @@ def single_image_fingerprint_h2(xfeat, kmeans):
         fingerprint_diag[kclust, :] = fingerprint[kclust, :, :].diagonal()
 
     fingerprint_h2 = np.reshape(fingerprint_diag, -1)
-    fingerprint_h1 = np.reshape(fingerprint_h1, -1)
-    fingerprint = np.hstack((fingerprint_h1, fingerprint_h2))
+    # fingerprint_h1 = np.reshape(fingerprint_h1, -1)
+    # fingerprint = np.hstack((fingerprint_h1, fingerprint_h2))
 
-    return fingerprint
+    return fingerprint_h2
 
 
 def single_image_fingerprint_h2v(xfeat, kmeans):
@@ -221,34 +223,38 @@ def single_image_fingerprint_h2v(xfeat, kmeans):
         h2v fingerprint.
     """
 
-    eps = 1.0e-6
     nvec, dimv = xfeat.shape
     xlab = kmeans.predict(xfeat)
     nclust = kmeans.cluster_centers_.shape[0]
-    fingerprint = np.zeros((nclust, dimv, dimv))
-    counter = np.zeros((nclust), dtype=int)
     centers = kmeans.cluster_centers_
+    fingerprint = np.zeros((nclust, dimv, dimv))
 
-    for kvec in range(nvec):
-        counter[np.int64(xlab[kvec])] = counter[np.int64(xlab[kvec])] + 1
-        fingerprint[np.int64(xlab[kvec]), :, :] = fingerprint[np.int64(xlab[kvec]), :, :] - centers[xlab[kvec], :] + \
-                                                  np.outer(xfeat[kvec, :], xfeat[kvec, :])
-    for kclust in range(nclust):
-        if counter[kclust] > 0:
-            fingerprint[kclust, :, :] = fingerprint[kclust, :, :] / counter[kclust]
-
-    fingerprint_h1 = np.reshape(single_image_fingerprint_h1v(xfeat, kmeans), (nclust, dimv))
+    fingerprint_h1 = np.reshape(single_image_fingerprint_h1(xfeat, kmeans), (nclust, dimv))
 
     for kclust in range(nclust):
-        fingerprint[kclust, :, :] = fingerprint[kclust, :, :] - np.outer(fingerprint_h1[kclust, :], fingerprint_h1[kclust, :])
+        args = np.argwhere(xlab == kclust)[:, 0]
+        if args.shape[0] > 0:
+            J_k = args.shape[0]
+            for arg in args:
+                fingerprint[kclust, :, :] = fingerprint[kclust, :, :] +\
+                                            np.outer((xfeat[arg, :] - centers[kclust]) /
+                                                     np.sqrt(np.dot(fingerprint_h1[kclust, :] - centers[kclust],
+                                                                    fingerprint_h1[kclust, :] - centers[kclust])),
+                                                     (xfeat[arg, :] - centers[kclust]) /
+                                                     np.sqrt(np.dot(fingerprint_h1[kclust, :] - centers[kclust],
+                                                                    fingerprint_h1[kclust, :] - centers[kclust])))
+            fingerprint[kclust, :, :] = (1 / J_k) * fingerprint[kclust, :, :]
 
+    # Reduce by diagonalizing
+    fingerprint_diag = np.zeros((nclust, dimv))
     for kclust in range(nclust):
-        if np.sqrt(np.dot(fingerprint_h1[kclust, :], fingerprint_h1[kclust, :])) > eps:
-            fingerprint[kclust, :, :] = fingerprint[kclust, :, :] / np.sqrt(np.dot(fingerprint_h1[kclust, :], fingerprint_h1[kclust, :]))
-        else:
-            fingerprint[kclust, :, :] = 0.0 * fingerprint[kclust, :, :]
+        fingerprint_diag[kclust, :] = fingerprint[kclust, :, :].diagonal()
 
-    return np.reshape(fingerprint, -1)
+    fingerprint_h2v = np.reshape(fingerprint_diag, -1)
+    # fingerprint_h1v = single_image_fingerprint_h1v(xfeat, kmeans)
+    # fingerprint_h12v = np.hstack((fingerprint_h1v, fingerprint_h2v))
+
+    return fingerprint_h2v
 
 
 def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
