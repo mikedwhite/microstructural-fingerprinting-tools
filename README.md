@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/microstructural-fingerprinting-tools/badge/?version=latest)](https://microstructural-fingerprinting-tools.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/microstructural-fingerprinting-tools/badge/?version=latest)](https://microstructural-fingerprinting-tools.readthedocs.io/en/latest/)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 
