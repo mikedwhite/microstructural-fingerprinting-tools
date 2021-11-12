@@ -1,8 +1,25 @@
-# Microstructural Fingerprinting Tools
-Python package for constructing compressed representations of microstructural image data.
+Introduction
+============
+
+Microstuctural Fingerprinting Tools is a Python package for constructing compressed representations of microstructual image data.
+The supporting paper is currently still in the works.
 
 
-## Examples
+Installation
+============
+
+This package is not currently published on PyPI and, as such, can only be downloaded from the source, `here <https://github.com/mikedwhite/microstructural-fingerprinting-tools>`.
+It is then recommended to either install by running the command
+
+.. code-block:: console
+
+   $ pip install .
+
+from the root directory, or to simply copy the directory `mftools` into your current project directory.
+
+
+Examples
+========
 
 Examples provided operate on a 3-class subset of the Carnegie Mellon University ultrahigh carbon steel (CMU-UHCS)
 dataset, which can be downloaded at https://materialsdata.nist.gov/handle/11256/940.
@@ -17,19 +34,16 @@ transform (SIFT), or from CNN features output from the final convolution layer. 
 example with either SIFT, SURF or CNN base features. Number of clusters and order of fingerprints can also be specified.
 
 
-## Documentation
-
-Open `docs/index.html` in the browser of your choice for full documentation.
-
-
-## Acknowledgements
+Acknowledgements
+================
 
 This project was developed at the University of Manchester with funding from the
 Engineering and Physical Sciences Research Council (EPSRC) grants EP/S022635/1 and EP/N510129/1 and Science Foundation
 Ireland (SFI) grant 18/EPSRC-CDT/3584.
 
 
-## License (Modified BSD)
+License (Modified BSD)
+======================
 
 Copyright (c) 2021, University of Manchester.
 All rights reserved.
