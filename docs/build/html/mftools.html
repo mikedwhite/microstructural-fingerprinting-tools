@@ -195,7 +195,7 @@ set and d is the length of each fingerprint.</p></li>
 <span id="mftools-fingerprints-module"></span><h2>mftools.fingerprints module<a class="headerlink" href="#module-mftools.fingerprints" title="Permalink to this headline"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.fingerprints.get_dict">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_dict" title="Permalink to this definition"></a></dt>
 <dd><p>Get dictionary of features from list of input images.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -212,6 +212,13 @@ set and d is the length of each fingerprint.</p></li>
 </dd>
 </dl>
 </p></li>
+<li><p><strong>red</strong> (<em>bool</em>) – <dl class="simple">
+<dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
+</dd>
+<dt>True</dt><dd><p>Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.</p>
+</dd>
+</dl>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -225,7 +232,7 @@ set and d is the length of each fingerprint.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.fingerprints.get_fingerprint">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprint" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprint" title="Permalink to this definition"></a></dt>
 <dd><p>Call a specified function for extracting h012 fingerprints.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -255,47 +262,10 @@ set and d is the length of each fingerprint.</p></li>
 </dd>
 </dl>
 </p></li>
-</ul>
+<li><p><strong>red</strong> (<em>bool</em>) – <dl class="simple">
+<dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fingerprint</strong> – Fingerprint of specified order.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="mftools.fingerprints.get_fingerprint_red">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprint_red</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprint_red" title="Permalink to this definition"></a></dt>
-<dd><p>Call a specified function for extracting h012 fingerprints.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<em>ndarray</em>) – Image data.</p></li>
-<li><p><strong>kmeans</strong> (<em>sklearn.cluster.kmeans</em>) – k-means cluster model corresponding to xfeat.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
-<li><p><strong>pca</strong> (<em>sklearn.decomposition.PCA</em>) – PCA model that has already been fit to feature dictionary.</p></li>
-<li><p><strong>order</strong> (<em>str</em>) – <dl class="simple">
-<dt>‘h0’ (default)</dt><dd><p>Return h0 fingerprint.</p>
-</dd>
-<dt>’h1’</dt><dd><p>Return h1 fingerprint.</p>
-</dd>
-<dt>’h1v’</dt><dd><p>Return h1v fingerprint.</p>
-</dd>
-<dt>’h2’</dt><dd><p>Return h2 fingerprint.</p>
-</dd>
-<dt>’h2v’</dt><dd><p>Return h2v fingerprint.</p>
-</dd>
-</dl>
-</p></li>
-<li><p><strong>cnn</strong> (<em>str</em><em> or </em><em>None</em>) – <dl class="simple">
-<dt>None (default)</dt><dd><p>Feature generator is not based on CNN architecture.</p>
-</dd>
-<dt>’alexnet’</dt><dd><p>Generates CNN features from AlexNet architecture.</p>
-</dd>
-<dt>’vgg’</dt><dd><p>Generates CNN features from VGG architecture.</p>
+<dt>True</dt><dd><p>Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.</p>
 </dd>
 </dl>
 </p></li>
@@ -341,7 +311,7 @@ fingerprint.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.fingerprints.get_fingerprints_vbow">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprints_vbow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprints_vbow" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprints_vbow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprints_vbow" title="Permalink to this definition"></a></dt>
 <dd><p>Generate fingerprints for whole images based on h012 framework.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -372,49 +342,10 @@ fingerprint.</p>
 </dd>
 </dl>
 </p></li>
-</ul>
+<li><p><strong>red</strong> (<em>bool</em>) – <dl class="simple">
+<dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fingerprints</strong> – Array of fingerprints with shape (N, d), where N is the number of input images and d is the length of each
-fingerprint.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="mftools.fingerprints.get_fingerprints_vbow_red">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprints_vbow_red</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mftools.fingerprints.get_fingerprints_vbow_red" title="Permalink to this definition"></a></dt>
-<dd><p>Generate fingerprints for whole images based on h012 framework.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to image data.</p></li>
-<li><p><strong>micro_list</strong> (<em>list</em>) – List of image filenames.</p></li>
-<li><p><strong>kmeans</strong> (<em>sklearn.cluster.kmeans</em>) – k-means cluster model corresponding to xfeat.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
-<li><p><strong>pca</strong> (<em>sklearn.decomposition.PCA</em>) – PCA model that has already been fit to feature dictionary.</p></li>
-<li><p><strong>order</strong> (<em>str</em>) – <dl class="simple">
-<dt>‘h0’ (default)</dt><dd><p>Return h0 fingerprint.</p>
-</dd>
-<dt>’h1’</dt><dd><p>Return h1 fingerprint.</p>
-</dd>
-<dt>’h1v’</dt><dd><p>Return h1v fingerprint.</p>
-</dd>
-<dt>’h2’</dt><dd><p>Return h2 fingerprint.</p>
-</dd>
-<dt>’h2v’</dt><dd><p>Return h2v fingerprint.</p>
-</dd>
-</dl>
-</p></li>
-<li><p><strong>cnn</strong> (<em>str</em><em> or </em><em>None</em>) – <dl class="simple">
-<dt>None (default)</dt><dd><p>Feature generator is not based on CNN architecture.</p>
-</dd>
-<dt>’alexnet’</dt><dd><p>Generates CNN features from AlexNet architecture.</p>
-</dd>
-<dt>’vgg’</dt><dd><p>Generates CNN features from VGG architecture.</p>
+<dt>True</dt><dd><p>Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.</p>
 </dd>
 </dl>
 </p></li>
