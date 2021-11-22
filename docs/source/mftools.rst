@@ -20,7 +20,7 @@ mftools.fingerprints module
    :undoc-members:
    :show-inheritance:
 
-mftools.generate\_features module
+mftools.generate_features module
 ---------------------------------
 
 .. automodule:: mftools.generate_features
