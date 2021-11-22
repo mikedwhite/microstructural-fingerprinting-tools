@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
 
-def get_dict(input_path, micro_list, feature_generator, cnn=None):
+def get_dict(input_path, micro_list, feature_generator, cnn=None, red=False):
     """Get dictionary of features from list of input images.
 
     Parameters
@@ -23,6 +23,11 @@ def get_dict(input_path, micro_list, feature_generator, cnn=None):
             Generates CNN features from AlexNet architecture.
         'vgg'
             Generates CNN features from VGG architecture.
+    red : bool
+        False (default)
+            Full feature stack is used for fingerprint construction.
+        True
+            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
 
     Returns
     -------
@@ -41,6 +46,16 @@ def get_dict(input_path, micro_list, feature_generator, cnn=None):
                 xfeat = feature_generator(image)
             else:
                 xfeat = feature_generator(image, cnn)
+
+            if red is True:
+                if xfeat.shape[0] > xfeat.shape[1]:
+                    J = xfeat.shape[1]
+                    pca = PCA(n_components=J)
+                    xfeat = np.transpose(pca.fit_transform(np.transpose(xfeat)))
+                else:
+                    print('Number of features must be greater than dimension of feature vectors')
+                    return 1
+
             if n == 0:
                 dict = np.copy(xfeat)
             else:
@@ -257,7 +272,7 @@ def single_image_fingerprint_h2v(xfeat, kmeans):
     return fingerprint_h2v
 
 
-def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
+def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=False):
     """Call a specified function for extracting h012 fingerprints.
 
     Parameters
@@ -286,6 +301,11 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
             Generates CNN features from AlexNet architecture.
         'vgg'
             Generates CNN features from VGG architecture.
+    red : bool
+        False (default)
+            Full feature stack is used for fingerprint construction.
+        True
+            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
 
     Returns
     -------
@@ -298,6 +318,15 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
         xfeat = feature_generator(image)
     else:
         xfeat = feature_generator(image, cnn)
+
+    if red is True:
+        if xfeat.shape[0] > xfeat.shape[1]:
+            J = xfeat.shape[1]
+            pca = PCA(n_components=J)
+            xfeat = np.transpose(pca.fit_transform(np.transpose(xfeat)))
+        else:
+            print('Number of features must be greater than dimension of feature vectors')
+            return 1
 
     if order == 'h0':
         fingerprint = single_image_fingerprint_h0(xfeat, kmeans)
@@ -317,7 +346,7 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None):
     return fingerprint
 
 
-def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None):
+def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None, red=False):
     """Generate fingerprints for whole images based on h012 framework.
 
     Parameters
@@ -348,6 +377,11 @@ def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, ord
             Generates CNN features from AlexNet architecture.
         'vgg'
             Generates CNN features from VGG architecture.
+    red : bool
+        False (default)
+            Full feature stack is used for fingerprint construction.
+        True
+            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
 
     Returns
     -------
@@ -364,9 +398,9 @@ def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, ord
         for n in range(nimage):
             image = io.imread(f'{input_path}micrographs/{micro_list[n]}')
             if n == 0:
-                fingerprints = get_fingerprint(image, kmeans, feature_generator, order, cnn)
+                fingerprints = get_fingerprint(image, kmeans, feature_generator, order, cnn, red)
             else:
-                fingerprints = np.vstack((fingerprints, get_fingerprint(image, kmeans, feature_generator, order, cnn)))
+                fingerprints = np.vstack((fingerprints, get_fingerprint(image, kmeans, feature_generator, order, cnn, red)))
 
             bar.next()  # update progress bar
 

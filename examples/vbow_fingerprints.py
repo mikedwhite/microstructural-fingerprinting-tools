@@ -30,6 +30,8 @@ if __name__ == '__main__':
               'cnn': None,
               # 'cnn': 'alexnet',
               # 'cnn': 'vgg',
+              # 'red': True,
+              'red': False,
               'order': 'h0',
               # 'order': 'h1',
               # 'order': 'h1v',
@@ -37,8 +39,8 @@ if __name__ == '__main__':
               # 'order': 'h2v',
               'niter': 10,
               'ssl_ratio': .05,
-              'svm_kernel': chi2_kernel
-              # 'svm_kernel': 'linear'
+              'svm_kernel': 'linear'
+              # 'svm_kernel': chi2_kernel
               }
 
     INPUT_PATH = params['input_path']
@@ -47,6 +49,7 @@ if __name__ == '__main__':
     NCLUST = params['nclust']
     FEATURE_GENERATOR = params['feature_generator']
     CNN = params['cnn']
+    RED = params['red']
     ORDER = params['order']
     NITER = params['niter']
     SSL_RATIO = params['ssl_ratio']
@@ -67,13 +70,13 @@ if __name__ == '__main__':
     with open(f'{INPUT_PATH}label_list.pkl', 'rb') as f:
         label_list = pickle.load(f)
 
-    dict = get_dict(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN)
+    dict = get_dict(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN, RED)
     kmeans = learn_labeling(dict, NCLUST)
     pickle.dump(kmeans, open(f'{OUTPUT_PATH}/clust_model.sav', 'wb'))
     with open(f'{OUTPUT_PATH}/clust_model.sav', 'rb') as f:
         kmeans = pickle.load(f)
 
-    fingerprints = get_fingerprints_vbow(INPUT_PATH, micro_list, kmeans, FEATURE_GENERATOR, ORDER, CNN)
+    fingerprints = get_fingerprints_vbow(INPUT_PATH, micro_list, kmeans, FEATURE_GENERATOR, ORDER, CNN, RED)
     np.save(f'{OUTPUT_PATH}/vbow_fingerprints.npy', fingerprints)
     fingerprints = np.load(f'{OUTPUT_PATH}/vbow_fingerprints.npy')
 
