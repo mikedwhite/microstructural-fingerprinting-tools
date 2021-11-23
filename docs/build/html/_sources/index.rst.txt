@@ -12,9 +12,6 @@ Microstructural Fingerprinting Tools
 
    intro
    mftools
-   mftools.classifiers
-   mftools.fingerprints
-   mftools.generate_features
 
 Indices and tables
 ==================
