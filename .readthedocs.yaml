@@ -21,4 +21,7 @@ python:
    - requirements: docs/requirements.txt
 
 submodules:
-  include: all
+  include:
+    - classifiers
+    - fingerprints
+    - generate_features
