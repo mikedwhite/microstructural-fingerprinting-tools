@@ -1,0 +1,11 @@
+graphlearning
+numpy
+sklearn
+scikit-learn
+progress
+scikit-image
+torch
+Pillow
+torchvision
+pandas
+setuptools
