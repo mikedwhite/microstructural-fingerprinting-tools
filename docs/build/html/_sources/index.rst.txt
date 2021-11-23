@@ -11,6 +11,7 @@ Microstructural Fingerprinting Tools
    :caption: Contents:
 
    intro
+   modules
    mftools
 
 Indices and tables
