@@ -18,12 +18,12 @@ def train_svm(xtrain, xttest, ytrain, yttest, kernel='linear'):
         Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
         set and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xtrain, with shame (n_train, ).
+        List of labels corresponding to xtrain, with shape (n_train, ).
     ytrain : ndarray
         Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
         and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xttest, with shame (n_test, ).
+        List of labels corresponding to xttest, with shape (n_test, ).
 
     Returns
     -------
@@ -48,12 +48,12 @@ def train_rf(xtrain, xttest, ytrain, yttest):
         Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
         set and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xtrain, with shame (n_train, ).
+        List of labels corresponding to xtrain, with shape (n_train, ).
     ytrain : ndarray
         Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
         and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xttest, with shame (n_test, ).
+        List of labels corresponding to xttest, with shape (n_test, ).
 
     Returns
     -------
@@ -79,12 +79,12 @@ def train_ul(xtrain, xttest, yttest, nclass, method='kmeans'):
         Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
         set and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xtrain, with shame (n_train, ).
+        List of labels corresponding to xtrain, with shape (n_train, ).
     xttest : ndarray
-        List of labels corresponding to xttest, with shame (n_test, ).
+        List of labels corresponding to xttest, with shape (n_test, ).
     nclass : int
         Number of classes to split data into.
-    methods : str
+    method : str
         'kmeans' (deafult)
             k-means clustering.
         'spectral'
@@ -148,12 +148,12 @@ def train_ssl(xtrain, xttest, ytrain, yttest, frac_data):
         Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
         set and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xtrain, with shame (n_train, ).
+        List of labels corresponding to xtrain, with shape (n_train, ).
     ytrain : ndarray
         Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
         and d is the length of each fingerprint.
     xttest : ndarray
-        List of labels corresponding to xttest, with shame (n_test, ).
+        List of labels corresponding to xttest, with shape (n_test, ).
     frac_data : float
         Fraction of ytrain used to initialise label propagation. Must have range (0, 1).
 
@@ -177,12 +177,10 @@ def train_ssl(xtrain, xttest, ytrain, yttest, frac_data):
     xdata = np.concatenate((xtrain[idx[0: num_ind], :], xtrain[idx[num_ind:], :], xttest), axis=0)
     ydata = np.concatenate((ytrain[idx[0: num_ind]], ytrain[idx[num_ind:]], yttest))
 
-    # Construct weight matrix W via k-nearest neighbours
     neigh = NearestNeighbors(n_neighbors=10)
     neigh.fit(xdata)
     W = neigh.kneighbors_graph(xdata).toarray()
 
-    # GraphLearning (jwcalder)
     labels_laplace = gl.graph_ssl(W, idx_train, ydata[0: num_ind], algorithm='laplace')
     labels_poisson = gl.graph_ssl(W, idx_train, ydata[0: num_ind], algorithm='poisson')
 

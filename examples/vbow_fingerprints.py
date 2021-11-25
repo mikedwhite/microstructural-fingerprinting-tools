@@ -25,7 +25,7 @@ if __name__ == '__main__':
               'nclass': 3,
               'nclust': 10,
               # 'feature_generator': generate_feature_surf,
-              'feature_generator': generate_feature_sift,
+              # 'feature_generator': generate_feature_sift,
               'feature_generator': generate_feature_cnn_featdict,
               # 'cnn': None,
               'cnn': 'alexnet',

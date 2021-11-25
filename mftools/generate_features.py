@@ -2,9 +2,8 @@ import cv2
 import numpy as np
 import torch.nn as nn
 from PIL import Image
-from skimage import img_as_ubyte, color, transform, io
-from torchvision import models
-from torchvision import transforms
+from skimage import img_as_ubyte, color
+from torchvision import models, transforms
 
 
 def generate_feature_sift(image):

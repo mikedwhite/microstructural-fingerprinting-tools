@@ -4,6 +4,14 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+def linkcode_resolve(domain, info):
+    if domain != 'py':
+        return None
+    if not info['module']:
+        return None
+    filename = info['module'].replace('.', '/')
+    return f'https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/{filename}.py'
+
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -30,7 +38,7 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.napoleon']
+extensions = ['sphinx.ext.napoleon', 'sphinx.ext.linkcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
