@@ -1,11 +1,12 @@
 graphlearning
 numpy
+opencv-contrib-python
+pandas
+Pillow
+progress
+setuptools
 sklearn
 scikit-learn
-progress
 scikit-image
 torch
-Pillow
 torchvision
-pandas
-setuptools
