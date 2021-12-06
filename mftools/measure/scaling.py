@@ -1,8 +1,6 @@
 """Functions for determining micrograph scaling.
 """
 
-import numpy as np
-
 
 def determine_scaling(image, bar_length_um, bar_frac):
     """Determine um per pixels scaling for an image provided the bar length in um and the fraction of the image for

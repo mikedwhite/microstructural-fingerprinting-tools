@@ -1,8 +1,6 @@
 """Methods for binarising grayscale images.
 """
 
-from typing import Optional
-
 import numpy as np
 from skimage.filters import threshold_niblack, threshold_sauvola, threshold_otsu
 from sklearn.cluster import KMeans
