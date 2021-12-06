@@ -27,12 +27,14 @@ def get_dict(input_path, micro_list, feature_generator, cnn=None, red=False):
         False (default)
             Full feature stack is used for fingerprint construction.
         True
-            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
+            Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
+            vector.
 
     Returns
     -------
     dict : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and d is the length
+        of each feature.
     """
 
     nimage = len(micro_list)
@@ -72,14 +74,15 @@ def learn_labeling(dict, nclust):
     Parameters
     ----------
     dict : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is
+        the length of each feature.
     nclust : int
-        Number of clusters to assign when training k-means model.
+        Number of clusters to assign when training :math:`k`-means model.
 
     Returns
     -------
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        Trained :math:`k`-means cluster model corresponding to dictionary input.
     """
 
     print('Learning cluster labels')
@@ -90,19 +93,20 @@ def learn_labeling(dict, nclust):
 
 
 def single_image_fingerprint_h0(xfeat, kmeans):
-    """Generate fingerprint h0 from dictionary of features and corresponding cluster model.
+    """Generate fingerprint :math:`H_0` from :math:`k`-means predictions of cluster centres from single image features.
 
     Parameters
     ----------
     xfeat : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is the
+        length of each feature.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
 
     Returns
     -------
     fingerprint : ndarray
-        h0 fingerprint.
+        :math:`H_0` fingerprint.
     """
 
     xlab = kmeans.predict(xfeat)
@@ -114,19 +118,20 @@ def single_image_fingerprint_h0(xfeat, kmeans):
 
 
 def single_image_fingerprint_h1(xfeat, kmeans):
-    """Generate fingerprint h1 from dictionary of features and corresponding cluster model.
+    """Generate fingerprint :math:`H_1` from :math:`k`-means predictions of cluster centres from single image features.
 
     Parameters
     ----------
     xfeat : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is the
+        length of each feature.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
 
     Returns
     -------
     fingerprint : ndarray
-        h1 fingerprint.
+        :math:`H_1` fingerprint.
     """
 
     nvec, dimv = xfeat.shape
@@ -146,19 +151,21 @@ def single_image_fingerprint_h1(xfeat, kmeans):
 
 
 def single_image_fingerprint_h1v(xfeat, kmeans):
-    """Generate fingerprint h1v from dictionary of features and corresponding cluster model.
+    """Generate fingerprint :math:`H_1^v` from :math:`k`-means predictions of cluster centres from single image
+    features.
 
     Parameters
     ----------
     xfeat : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is the
+        length of each feature.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
 
     Returns
     -------
     fingerprint : ndarray
-        h1v fingerprint.
+        :math:`H_1^v` fingerprint.
     """
 
     nvec, dimv = xfeat.shape
@@ -179,19 +186,20 @@ def single_image_fingerprint_h1v(xfeat, kmeans):
 
 
 def single_image_fingerprint_h2(xfeat, kmeans):
-    """Generate fingerprint h2 from dictionary of features and corresponding cluster model.
+    """Generate fingerprint :math:`H_2` from :math:`k`-means predictions of cluster centres from single image features.
 
     Parameters
     ----------
     xfeat : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is the
+        length of each feature.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
 
     Returns
     -------
     fingerprint : ndarray
-        h2 fingerprint.
+        :math:`H_2` fingerprint.
     """
 
     nvec, dimv = xfeat.shape
@@ -223,19 +231,20 @@ def single_image_fingerprint_h2(xfeat, kmeans):
 
 
 def single_image_fingerprint_h2v(xfeat, kmeans):
-    """Generate fingerprint h2v from dictionary of features and corresponding cluster model.
+    """Generate fingerprint :math:`H_2^v` from :math:`k`-means predictions of cluster centres from single image features.
 
     Parameters
     ----------
     xfeat : ndarray
-        Dictionary of features with shape (N, d), where N is the number of features and d is the length of each feature.
+        Dictionary of features with shape :math:`(N, d)`, where :math:`N` is the number of features and :math:`d` is the
+        length of each feature.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
 
     Returns
     -------
     fingerprint : ndarray
-        h2v fingerprint.
+        :math:`H_2^v` fingerprint.
     """
 
     nvec, dimv = xfeat.shape
@@ -273,27 +282,28 @@ def single_image_fingerprint_h2v(xfeat, kmeans):
 
 
 def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=False):
-    """Call a specified function for extracting h012 fingerprints.
+    """Call a specified function for extracting :math:`H_l` fingerprints, where :math:`l` denotes the order of the
+    fingerprint.
 
     Parameters
     ----------
     image : ndarray
         Image data.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
     feature_generator : mftools.generate_features
         Feature generation method. Options are available in the generate_features module.
     order : str
         'h0' (default)
-            Return h0 fingerprint.
+            Return :math:`H_0` fingerprint.
         'h1'
-            Return h1 fingerprint.
+            Return :math:`H_1` fingerprint.
         'h1v'
-            Return h1v fingerprint.
+            Return :math:`H_1^v` fingerprint.
         'h2'
-            Return h2 fingerprint.
+            Return :math:`H_2` fingerprint.
         'h2v'
-            Return h2v fingerprint.
+            Return :math:`H_2^v` fingerprint.
     cnn : str or None
         None (default)
             Feature generator is not based on CNN architecture.
@@ -305,7 +315,8 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=
         False (default)
             Full feature stack is used for fingerprint construction.
         True
-            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
+            Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
+            vector.
 
     Returns
     -------
@@ -347,7 +358,8 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=
 
 
 def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None, red=False):
-    """Generate fingerprints for whole images based on h012 framework.
+    """Generate fingerprints for whole images based on :math:`H_{l}` framework, where :math:`l` denotes the order of the
+    fingerprint.
 
     Parameters
     ----------
@@ -356,20 +368,20 @@ def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, ord
     micro_list : list
         List of image filenames.
     kmeans : sklearn.cluster.kmeans
-        k-means cluster model corresponding to xfeat.
+        :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
     feature_generator : mftools.generate_features
         Feature generation method. Options are available in the generate_features module.
     order : str
         'h0' (default)
-            Return h0 fingerprint.
+            Return :math:`H_0` fingerprint.
         'h1'
-            Return h1 fingerprint.
+            Return :math:`H_1` fingerprint.
         'h1v'
-            Return h1v fingerprint.
+            Return :math:`H_1^v` fingerprint.
         'h2'
-            Return h2 fingerprint.
+            Return :math:`H_2` fingerprint.
         'h2v'
-            Return h2v fingerprint.
+            Return :math:`H_2^v` fingerprint.
     cnn : str or None
         None (default)
             Feature generator is not based on CNN architecture.
@@ -381,13 +393,14 @@ def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, ord
         False (default)
             Full feature stack is used for fingerprint construction.
         True
-            Feature stack is reduced via PCA to shape (d, d), where d is the dimension of each feature vector.
+            Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
+            vector.
 
     Returns
     -------
     fingerprints : ndarray
-        Array of fingerprints with shape (N, d), where N is the number of input images and d is the length of each
-        fingerprint.
+        Array of fingerprints with shape :math:`(N, d)`, where :math:`N` is the number of input images and :math:`d` is
+        the length of each fingerprint.
     """
 
     nimage = len(micro_list)
@@ -427,8 +440,8 @@ def get_fingerprints_cnn(input_path, micro_list, feature_generator, cnn='alexnet
     Returns
     -------
     fingerprints : ndarray
-        Array of fingerprints with shape (N, d), where N is the number of input images and d is the length of each
-        fingerprint.
+        Array of fingerprints with shape :math:`(N, d)`, where :math:`N` is the number of input images and :math:`d` is
+        the length of each fingerprint.
     """
 
     nimage = len(micro_list)
