@@ -17,7 +17,7 @@ def generate_feature_sift(image):
     Returns
     -------
     xfeat : ndarray
-        Array of features. Has shape (N, 128), where N is the number of features extracted.
+        Array of features. Has shape :math:`(N, 128)`, where :math:`N` is the number of features extracted.
     """
 
     sift = cv2.SIFT_create()
@@ -37,7 +37,7 @@ def generate_feature_surf(image):
     Returns
     -------
     xfeat : ndarray
-        Array of features. Has shape (N, 64), where N is the number of features extracted.
+        Array of features. Has shape :math:`(N, 64)`, where :math:`N` is the number of features extracted.
     """
 
     surf = cv2.xfeatures2d.SURF_create()
@@ -62,7 +62,8 @@ def generate_feature_cnn_flatten(image, cnn='alexnet'):
     Returns
     -------
     xfeat : ndarray
-        Array of features. Has shape (N, ), where N is the number of voxels in the final convolution output.
+        Array of features. Has shape :math:`(N, )`, where :math:`N` is the number of voxels in the final convolution
+        output.
     """
 
     if cnn == 'alexnet':
@@ -107,7 +108,8 @@ def generate_feature_cnn_maxpool(image, cnn='alexnet'):
     Returns
     -------
     xfeat : ndarray
-        Array of features. Has shape (d, ), where d is length of each feature output from the final convolution layer.
+        Array of features. Has shape :math:`(d, )`, where :math:`d` is length of each feature output from the final
+        convolution layer.
     """
 
     if cnn == 'alexnet':
@@ -150,7 +152,8 @@ def generate_feature_cnn_featdict(image, cnn='alexnet'):
     Returns
     -------
     xfeat : ndarray
-        Array of features. Has shape (N, d), where N is the number of features in the final convolution output and d is
+        Array of features. Has shape :math:`(N, d)`, where :math:`N` is the number of features in the final convolution
+        output and d is
         the dimension of each feature.
     """
 

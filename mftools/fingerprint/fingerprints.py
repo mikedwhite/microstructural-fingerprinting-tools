@@ -357,7 +357,7 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=
     return fingerprint
 
 
-def get_fingerprints_vbow(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None, red=False):
+def get_fingerprints_hl(input_path, micro_list, kmeans, feature_generator, order='h0', cnn=None, red=False):
     """Generate fingerprints for whole images based on :math:`H_{l}` framework, where :math:`l` denotes the order of the
     fingerprint.
 

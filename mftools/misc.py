@@ -6,7 +6,7 @@ import numpy as np
 
 
 def remove_outliers(x, n_std=2):
-    """Remove outliers, i.e. values, x_i, which lie outside the range :math:`x_i +- std(x) * n_std`.
+    """Remove outliers, i.e. values, :math:`x_i`, which lie outside the range :math:`x_i +- std(x) * n_std`.
 
     Parameters
     ----------
@@ -18,7 +18,7 @@ def remove_outliers(x, n_std=2):
     Returns
     -------
     ndarray
-        Data with outliers removed. Returned as 1d array regardless of input shape.
+        Data with outliers removed. Returned as 1D array regardless of input shape.
     """
 
     if x.ndim > 1:

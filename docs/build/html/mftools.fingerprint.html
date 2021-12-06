@@ -219,8 +219,8 @@ the length of each fingerprint.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mftools.fingerprint.fingerprints.get_fingerprints_vbow">
-<span class="sig-prename descclassname"><span class="pre">mftools.fingerprint.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprints_vbow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/fingerprint/fingerprints.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.fingerprint.fingerprints.get_fingerprints_vbow" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mftools.fingerprint.fingerprints.get_fingerprints_hl">
+<span class="sig-prename descclassname"><span class="pre">mftools.fingerprint.fingerprints.</span></span><span class="sig-name descname"><span class="pre">get_fingerprints_hl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">micro_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmeans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/fingerprint/fingerprints.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.fingerprint.fingerprints.get_fingerprints_hl" title="Permalink to this definition"></a></dt>
 <dd><p>Generate fingerprints for whole images based on <span class="math notranslate nohighlight">\(H_{l}\)</span> framework, where <span class="math notranslate nohighlight">\(l\)</span> denotes the order of the
 fingerprint.</p>
 <dl class="field-list simple">
@@ -420,7 +420,8 @@ length of each feature.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape (N, d), where N is the number of features in the final convolution output and d is
+<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((N, d)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the number of features in the final convolution
+output and d is
 the dimension of each feature.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
@@ -447,7 +448,8 @@ the dimension of each feature.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape (N, ), where N is the number of voxels in the final convolution output.</p>
+<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((N, )\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the number of voxels in the final convolution
+output.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -473,7 +475,8 @@ the dimension of each feature.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape (d, ), where d is length of each feature output from the final convolution layer.</p>
+<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((d, )\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is length of each feature output from the final
+convolution layer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -490,7 +493,7 @@ the dimension of each feature.</p>
 <dd class="field-odd"><p><strong>image</strong> (<em>ndarray</em>) – Image data.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape (N, 128), where N is the number of features extracted.</p>
+<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((N, 128)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the number of features extracted.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -507,7 +510,7 @@ the dimension of each feature.</p>
 <dd class="field-odd"><p><strong>image</strong> (<em>ndarray</em>) – Image data.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape (N, 64), where N is the number of features extracted.</p>
+<dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((N, 64)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the number of features extracted.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>

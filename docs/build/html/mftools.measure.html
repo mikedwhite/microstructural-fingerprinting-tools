@@ -15,6 +15,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -114,9 +115,9 @@ Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id2"><span class="problematic" id="id3">`</span></a>mu`m per pixel).</p></li>
 <li><p><strong>n_scans</strong> (<em>int</em>) – Number of randomly orientated line scans to perform.</p></li>
-<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (um).</p></li>
+<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (:math:<a href="#id4"><span class="problematic" id="id5">`</span></a>mu`m).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -128,7 +129,7 @@ Image Analysis</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dt class="label" id="id6"><span class="brackets">1</span></dt>
 <dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
 Automatic Image Analysis</p>
 </dd>
@@ -143,7 +144,7 @@ Automatic Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id7"><span class="problematic" id="id8">`</span></a>mu`m per pixel).</p></li>
 <li><p><strong>n_scans</strong> (<em>int</em>) – Number of line scans in both the horizontal and vertical direction.</p></li>
 </ul>
 </dd>
@@ -164,7 +165,7 @@ Automatic Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id9"><span class="problematic" id="id10">`</span></a>mu`m per pixel).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -176,7 +177,7 @@ Automatic Image Analysis</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets">1</span></dt>
+<dt class="label" id="id11"><span class="brackets">1</span></dt>
 <dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
 Automatic Image Analysis</p>
 </dd>
@@ -191,11 +192,11 @@ Automatic Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id12"><span class="problematic" id="id13">`</span></a>mu`m per pixel).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>gc</strong> – Number of grains per um^2.</p>
+<dd class="field-even"><p><strong>gc</strong> – Number of grains per <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>int</p>
@@ -203,7 +204,7 @@ Automatic Image Analysis</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="id4"><span class="brackets">1</span></dt>
+<dt class="label" id="id14"><span class="brackets">1</span></dt>
 <dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
 Automatic Image Analysis</p>
 </dd>
@@ -218,9 +219,9 @@ Automatic Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id15"><span class="problematic" id="id16">`</span></a>mu`m per pixel).</p></li>
 <li><p><strong>n_scans</strong> (<em>int</em>) – Number of randomly orientated line scans to perform.</p></li>
-<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (um).</p></li>
+<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (:math:<a href="#id17"><span class="problematic" id="id18">`</span></a>mu`m).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -232,7 +233,7 @@ Automatic Image Analysis</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="id5"><span class="brackets">1</span></dt>
+<dt class="label" id="id19"><span class="brackets">1</span></dt>
 <dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
 Automatic Image Analysis</p>
 </dd>
@@ -247,7 +248,7 @@ Automatic Image Analysis</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
-<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (:math:<a href="#id20"><span class="problematic" id="id21">`</span></a>mu`m per pixel).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -259,7 +260,7 @@ Automatic Image Analysis</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets">1</span></dt>
+<dt class="label" id="id22"><span class="brackets">1</span></dt>
 <dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
 Automatic Image Analysis</p>
 </dd>
@@ -279,12 +280,12 @@ which it occupies.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
-<li><p><strong>bar_length_um</strong> (<em>float</em>) – Length of scale bar (um).</p></li>
+<li><p><strong>bar_length_um</strong> (<em>float</em>) – Length of scale bar (:math:<a href="#id23"><span class="problematic" id="id24">`</span></a>mu`m).</p></li>
 <li><p><strong>bar_frac</strong> (<em>float</em>) – Fraction of the image width occupied by the scale bar.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>um_per_px</strong> – Scaling (um per px).</p>
+<dd class="field-even"><p><strong>um_per_px</strong> – Scaling (:math:<a href="#id25"><span class="problematic" id="id26">`</span></a>mu`m per px).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>float</p>

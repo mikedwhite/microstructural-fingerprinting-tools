@@ -15,6 +15,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -98,17 +99,17 @@
 <span id="mftools-assess-classify-module"></span><h2>mftools.assess.classify module<a class="headerlink" href="#module-mftools.assess.classify" title="Permalink to this headline"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.assess.classify.train_rf">
-<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_rf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yttest</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_rf" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_rf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytest</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_rf" title="Permalink to this definition"></a></dt>
 <dd><p>Train random forest on training data, validate on test data and compute accuracy score for the validation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
-set and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape (n_train, ).</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
-and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> – List of labels corresponding to xttest, with shape (n_test, ).</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -122,17 +123,17 @@ and d is the length of each fingerprint.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.assess.classify.train_ssl">
-<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_ssl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_ssl" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_ssl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_ssl" title="Permalink to this definition"></a></dt>
 <dd><p>Propagate labels via semi-supervised learning (SSL) and compute accuracy score.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
-set and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape (n_train, ).</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
-and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> – List of labels corresponding to xttest, with shape (n_test, ).</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
 <li><p><strong>frac_data</strong> (<em>float</em>) – Fraction of ytrain used to initialise label propagation. Must have range (0, 1).</p></li>
 </ul>
 </dd>
@@ -148,18 +149,18 @@ and d is the length of each fingerprint.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.assess.classify.train_svm">
-<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_svm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_svm" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_svm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_svm" title="Permalink to this definition"></a></dt>
 <dd><p>Train support vector machine (SVM) on training data, validate on test data and compute accuracy score for the
 validation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
-set and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape (n_train, ).</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_test, d), where n_train is the number of fingerprints within the test set
-and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> – List of labels corresponding to xttest, with shape (n_test, ).</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -173,19 +174,20 @@ and d is the length of each fingerprint.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.assess.classify.train_ul">
-<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_ul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_ul" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.assess.classify.</span></span><span class="sig-name descname"><span class="pre">train_ul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xtrain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/assess/classify.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.assess.classify.train_ul" title="Permalink to this definition"></a></dt>
 <dd><p>Perform unsupervised learning (UL) on training data and compute accuracy score. Supports k-means and spectral
 clustering via the <cite>method</cite> parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape (n_train, d), where n_train is the number of fingerprints within the training
-set and d is the length of each fingerprint.</p></li>
-<li><p><strong>xttest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape (n_train, ).</p></li>
-<li><p><strong>xttest</strong> – List of labels corresponding to xttest, with shape (n_test, ).</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
+within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
 <li><p><strong>nclass</strong> (<em>int</em>) – Number of classes to split data into.</p></li>
 <li><p><strong>method</strong> (<em>str</em>) – <dl class="simple">
-<dt>‘kmeans’ (deafult)</dt><dd><p>k-means clustering.</p>
+<dt>‘kmeans’ (deafult)</dt><dd><p><span class="math notranslate nohighlight">\(k\)</span>-means clustering.</p>
 </dd>
 <dt>’spectral’</dt><dd><p>Spectral clustering.</p>
 </dd>

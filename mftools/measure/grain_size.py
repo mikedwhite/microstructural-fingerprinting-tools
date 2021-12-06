@@ -22,7 +22,7 @@ def l_over_a(image, um_per_px):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
 
     Returns
     -------
@@ -75,11 +75,11 @@ def intersection_count(image, um_per_px, n_scans, min_length):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
     n_scans : int
         Number of randomly orientated line scans to perform.
     min_length : float
-        Minimum scan line length to include in measurements (um).
+        Minimum scan line length to include in measurements (:math:`\\mu`m).
 
     Returns
     -------
@@ -152,11 +152,11 @@ def chord_length(image, um_per_px, n_scans, min_length):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
     n_scans : int
         Number of randomly orientated line scans to perform.
     min_length : float
-        Minimum scan line length to include in measurements (um).
+        Minimum scan line length to include in measurements (:math:`\\mu`m).
 
     Returns
     -------
@@ -262,7 +262,7 @@ def chord_length_uniform(image, um_per_px, n_scans):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
     n_scans : int
         Number of line scans in both the horizontal and vertical direction.
 
@@ -321,12 +321,12 @@ def grain_count(image, um_per_px):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
 
     Returns
     -------
     gc : int
-        Number of grains per um^2.
+        Number of grains per :math:`\\mu`m:math:`^2`.
 
     References
     ----------
@@ -354,7 +354,7 @@ def grain_areas(image, um_per_px):
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (um per pixel).
+        Scaling (:math:`\\mu`m per pixel).
 
     Returns
     -------

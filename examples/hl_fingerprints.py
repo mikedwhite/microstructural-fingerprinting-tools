@@ -84,7 +84,7 @@ if __name__ == '__main__':
     np.save(f'{OUTPUT_PATH}/vbow_fingerprints.npy', fingerprints)
     fingerprints = np.load(f'{OUTPUT_PATH}vbow_fingerprints.npy')
 
-    micro_list_train_stack, micro_list_ttest_stack, label_list_train_stack, label_list_ttest_stack =\
+    micro_list_train_stack, micro_list_test_stack, label_list_train_stack, label_list_test_stack =\
         cross_validation_split(micro_list, label_list, NITER)
 
     for ITER in range(NITER):
@@ -93,17 +93,17 @@ if __name__ == '__main__':
 
         micro_list_train = micro_list_train_stack[ITER, :].tolist()
         label_list_train = label_list_train_stack[ITER, :].tolist()
-        micro_list_ttest = micro_list_ttest_stack[ITER, :].tolist()
-        label_list_ttest = label_list_ttest_stack[ITER, :].tolist()
+        micro_list_test = micro_list_test_stack[ITER, :].tolist()
+        label_list_test = label_list_test_stack[ITER, :].tolist()
 
         xtrain = fingerprints[micro_list_train, :]
-        xttest = fingerprints[micro_list_ttest, :]
+        xtest = fingerprints[micro_list_test, :]
 
-        accuracy_svm = train_svm(xtrain, xttest, label_list_train, label_list_ttest, kernel=SVM_KERNEL)
-        accuracy_rf = train_rf(xtrain, xttest, label_list_train, label_list_ttest)
-        accuracy_ulk = train_ul(xtrain, xttest, label_list_ttest, NCLASS, method='kmeans')
-        accuracy_uls = train_ul(xtrain, xttest, label_list_ttest, NCLASS, method='spectral')
-        accuracy_lap, accuracy_poi = train_ssl(xtrain, xttest, label_list_train, label_list_ttest, SSL_RATIO)
+        accuracy_svm = train_svm(xtrain, xtest, label_list_train, label_list_test, kernel=SVM_KERNEL)
+        accuracy_rf = train_rf(xtrain, xtest, label_list_train, label_list_test)
+        accuracy_ulk = train_ul(xtrain, xtest, label_list_test, NCLASS, method='kmeans')
+        accuracy_uls = train_ul(xtrain, xtest, label_list_test, NCLASS, method='spectral')
+        accuracy_lap, accuracy_poi = train_ssl(xtrain, xtest, label_list_train, label_list_test, SSL_RATIO)
 
         print(f'SVM accuracy score: {accuracy_svm:.3f}')
         print(f'Random forest accuracy score: {accuracy_rf:.3f}')
