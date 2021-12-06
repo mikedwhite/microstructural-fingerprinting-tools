@@ -261,11 +261,11 @@ def single_image_fingerprint_h2v(xfeat, kmeans):
             fingerprint[kclust, :, :] = (1 / J_k) * fingerprint[kclust, :, :]
 
     # Reduce by diagonalizing
-    fingerprint_diag = np.zeros((nclust, dimv))
-    for kclust in range(nclust):
-        fingerprint_diag[kclust, :] = fingerprint[kclust, :, :].diagonal()
+    # fingerprint_diag = np.zeros((nclust, dimv))
+    # for kclust in range(nclust):
+    #     fingerprint_diag[kclust, :] = fingerprint[kclust, :, :].diagonal()
 
-    fingerprint_h2v = np.reshape(fingerprint_diag, -1)
+    fingerprint_h2v = np.reshape(fingerprint, -1)
     # fingerprint_h1v = single_image_fingerprint_h1v(xfeat, kmeans)
     # fingerprint_h12v = np.hstack((fingerprint_h1v, fingerprint_h2v))
 

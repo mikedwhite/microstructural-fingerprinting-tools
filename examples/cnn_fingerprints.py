@@ -10,9 +10,9 @@ import pickle
 
 import numpy as np
 
-from mftools.classifiers import train_svm, train_rf, train_ul, train_ssl
-from mftools.fingerprints import get_fingerprints_cnn
-from mftools.generate_features import generate_feature_cnn_flatten, generate_feature_cnn_maxpool
+from mftools.assess.classify import train_svm, train_rf, train_ul, train_ssl
+from mftools.fingerprint.fingerprints import get_fingerprints_cnn
+from mftools.fingerprint.generate_features import generate_feature_cnn_flatten, generate_feature_cnn_maxpool
 
 from data_proc_dataset2 import cross_validation_split
 

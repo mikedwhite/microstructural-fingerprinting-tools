@@ -11,9 +11,10 @@ import pickle
 import numpy as np
 from sklearn.metrics.pairwise import chi2_kernel
 
-from mftools.classifiers import train_svm, train_rf, train_ul, train_ssl
-from mftools.fingerprints import get_dict, learn_labeling, get_fingerprints_vbow
-from mftools.generate_features import generate_feature_surf, generate_feature_sift, generate_feature_cnn_featdict
+from mftools.assess.classify import train_svm, train_rf, train_ul, train_ssl
+from mftools.fingerprint.fingerprints import get_dict, learn_labeling, get_fingerprints_vbow
+from mftools.fingerprint.generate_features import (generate_feature_surf, generate_feature_sift,
+                                                   generate_feature_cnn_featdict)
 
 from data_proc_dataset2 import cross_validation_split
 
@@ -24,23 +25,23 @@ if __name__ == '__main__':
               'output_path': 'out/',
               'nclass': 3,
               'nclust': 10,
-              # 'feature_generator': generate_feature_surf,
+              'feature_generator': generate_feature_surf,
               # 'feature_generator': generate_feature_sift,
-              'feature_generator': generate_feature_cnn_featdict,
-              # 'cnn': None,
-              'cnn': 'alexnet',
+              # 'feature_generator': generate_feature_cnn_featdict,
+              'cnn': None,
+              # 'cnn': 'alexnet',
               # 'cnn': 'vgg',
-              'red': True,
-              # 'red': False,
-              # 'order': 'h0',
+              # 'red': True,
+              'red': False,
+              'order': 'h0',
               # 'order': 'h1',
-              'order': 'h1v',
+              # 'order': 'h1v',
               # 'order': 'h2',
               # 'order': 'h2v',
               'niter': 10,
               'ssl_ratio': .05,
-              'svm_kernel': 'linear'
-              # 'svm_kernel': chi2_kernel
+              # 'svm_kernel': 'linear'
+              'svm_kernel': chi2_kernel
               }
 
     INPUT_PATH = params['input_path']
@@ -71,14 +72,17 @@ if __name__ == '__main__':
         label_list = pickle.load(f)
 
     dict = get_dict(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN, RED)
+    np.save(f'{OUTPUT_PATH}dict.npy', dict)
+    dict = np.load(f'{OUTPUT_PATH}dict.npy')
+
     kmeans = learn_labeling(dict, NCLUST)
-    pickle.dump(kmeans, open(f'{OUTPUT_PATH}/clust_model.sav', 'wb'))
-    with open(f'{OUTPUT_PATH}/clust_model.sav', 'rb') as f:
+    pickle.dump(kmeans, open(f'{OUTPUT_PATH}clust_model.sav', 'wb'))
+    with open(f'{OUTPUT_PATH}clust_model.sav', 'rb') as f:
         kmeans = pickle.load(f)
 
     fingerprints = get_fingerprints_vbow(INPUT_PATH, micro_list, kmeans, FEATURE_GENERATOR, ORDER, CNN, RED)
     np.save(f'{OUTPUT_PATH}/vbow_fingerprints.npy', fingerprints)
-    fingerprints = np.load(f'{OUTPUT_PATH}/vbow_fingerprints.npy')
+    fingerprints = np.load(f'{OUTPUT_PATH}vbow_fingerprints.npy')
 
     micro_list_train_stack, micro_list_ttest_stack, label_list_train_stack, label_list_ttest_stack =\
         cross_validation_split(micro_list, label_list, NITER)
