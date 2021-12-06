@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mftools.preprocess package &mdash; mftools 0.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="mftools.measure package" href="mftools.measure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> mftools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#examples">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#license-modified-bsd">License (Modified BSD)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mftools.html">mftools package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mftools.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mftools.assess.html">mftools.assess package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mftools.fingerprint.html">mftools.fingerprint package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mftools.measure.html">mftools.measure package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mftools.preprocess package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.preprocess.binarise">mftools.preprocess.binarise module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.preprocess.filter">mftools.preprocess.filter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.preprocess">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#module-mftools.misc">mftools.misc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#module-mftools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mftools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="mftools.html">mftools package</a> &raquo;</li>
+      <li>mftools.preprocess package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mftools.preprocess.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mftools-preprocess-package">
+<h1>mftools.preprocess package<a class="headerlink" href="#mftools-preprocess-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-mftools.preprocess.binarise">
+<span id="mftools-preprocess-binarise-module"></span><h2>mftools.preprocess.binarise module<a class="headerlink" href="#module-mftools.preprocess.binarise" title="Permalink to this headline"></a></h2>
+<p>Methods for binarising grayscale images.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.preprocess.binarise.k_means">
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">k_means</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.k_means" title="Permalink to this definition"></a></dt>
+<dd><p>Return segmented image determined via <span class="math notranslate nohighlight">\(k\)</span>-means clustering, where the number of segmented regions is
+n_clusters. Setting n_clusters = 2 (default) returns a binarised image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>n_clusters</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of clusters to segment (2, by default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>image_seg</strong> – Segmented image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.preprocess.binarise.niblack">
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">niblack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.niblack" title="Permalink to this definition"></a></dt>
+<dd><p>Return binary image such that all pixels with a value &gt; <span class="math notranslate nohighlight">\(T\)</span> are set to 1 and otherwise set to 0, where
+<span class="math notranslate nohighlight">\(T\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[T = \mu(x,y) - k * \sigma(x,y),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu(x,y)\)</span> and :math`sigma(x,y)` are the mean and standard deviation, respectively, of the square
+neighbourhood with side length window_size, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Side length of sliding square neighbourhood. Must be odd (15, by default).</p></li>
+<li><p><strong>k</strong> (<em>float</em><em>, </em><em>optional</em>) – Scale factor for standard deviation in Niblack formula (0.2, by default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>image_binary</strong> – Binarised image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.preprocess.binarise.otsu">
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">otsu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.otsu" title="Permalink to this definition"></a></dt>
+<dd><p>Return binary image such that all pixels with a value &gt; <span class="math notranslate nohighlight">\(T\)</span> are set to 1 and otherwise set to 0, where
+<span class="math notranslate nohighlight">\(T\)</span> is defined globally by Otsu’s method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>n_bins</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of histogram bins for computing global threshold (256, by default).</p></li>
+<li><p><strong>T_shift</strong> (<em>float</em>) – Alteration to make to detected threshold, <span class="math notranslate nohighlight">\(T\)</span> (0, by default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>image_binary</strong> – Binarised image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.preprocess.binarise.sauvola">
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">sauvola</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.sauvola" title="Permalink to this definition"></a></dt>
+<dd><p>Return binary image such that all pixels with a value &gt; <span class="math notranslate nohighlight">\(T\)</span> are set to 1 and otherwise set to 0, where
+<span class="math notranslate nohighlight">\(T\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[T = \mu(x,y)*(1 + k * ((\sigma(x,y)/R) - 1)),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu(x,y)\)</span> and <span class="math notranslate nohighlight">\(\sigma(x,y)\)</span> are the mean and standard deviation, respectively, of the square
+neighbourhood with side length window_size, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span>, <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale factor and
+<span class="math notranslate nohighlight">\(R\)</span> is the dynamic range of standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Side length of sliding square neighbourhood. Must be odd (15, by default).</p></li>
+<li><p><strong>k</strong> (<em>float</em><em>, </em><em>optional</em>) – Scale factor for standard deviation in Sauvola formula (0.2, by default).</p></li>
+<li><p><strong>R</strong> (<em>float</em><em>, </em><em>optional</em>) – Dynamic range of standard deviation. If None (default), R is set to half of the image dtype range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>image_binary</strong> – Binarised image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mftools.preprocess.filter">
+<span id="mftools-preprocess-filter-module"></span><h2>mftools.preprocess.filter module<a class="headerlink" href="#module-mftools.preprocess.filter" title="Permalink to this headline"></a></h2>
+<p>Homomorphic filters which map from image domain to log domain to Fourier domain before application of filter.
+Mappings are inverted before the filtered image is returned.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.preprocess.filter.hmf_gauss">
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.filter.</span></span><span class="sig-name descname"><span class="pre">hmf_gauss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'low'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/filter.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.filter.hmf_gauss" title="Permalink to this definition"></a></dt>
+<dd><p>Apply emphasised Gaussian homomorphic filter of the form</p>
+<div class="math notranslate nohighlight">
+\[H_{emphasis} = \alpha + \beta * H,\]</div>
+<p>where <span class="math notranslate nohighlight">\(H\)</span> is a Gaussian filter with standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em>) – Gaussian filter standard deviation (1.0, by default).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Gaussian filter offset (0.0, by default).</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>optional</em>) – Gaussian filter scaling (1.0, by default).</p></li>
+<li><p><strong>pass_type</strong> (<em>str</em><em>, </em><em>optional</em>) – <dl class="simple">
+<dt>‘low’ (default)</dt><dd><p>Applies a low-pass filter.</p>
+</dd>
+<dt>’high’</dt><dd><p>Applies a high-pass filter.</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>image</strong> – Grayscale filtered image normalised to the range [0,1].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mftools.preprocess">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mftools.preprocess" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mftools.measure.html" class="btn btn-neutral float-left" title="mftools.measure package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mike White.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

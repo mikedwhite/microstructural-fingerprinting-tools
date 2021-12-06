@@ -25,12 +25,12 @@ sys.path.insert(0, os.path.abspath('../../mftools/'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'microstructural-fingerprinting-tools'
+project = 'mftools'
 copyright = '2021, Mike White'
 author = 'Mike White'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,7 +38,16 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.napoleon', 'sphinx.ext.linkcode']
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.linkcode',
+    'sphinx.ext.mathjax'
+]
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -8,5 +8,6 @@ setuptools
 sklearn
 scikit-learn
 scikit-image
+scipy
 torch
 torchvision

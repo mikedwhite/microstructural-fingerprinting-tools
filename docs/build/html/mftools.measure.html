@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mftools.measure package &mdash; mftools 0.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="mftools.preprocess package" href="mftools.preprocess.html" />
+    <link rel="prev" title="mftools.fingerprint package" href="mftools.fingerprint.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> mftools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#examples">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#license-modified-bsd">License (Modified BSD)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mftools.html">mftools package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mftools.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mftools.assess.html">mftools.assess package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mftools.fingerprint.html">mftools.fingerprint package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mftools.measure package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.measure.grain_size">mftools.measure.grain_size module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.measure.scaling">mftools.measure.scaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.measure.volume_fraction">mftools.measure.volume_fraction module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-mftools.measure">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mftools.preprocess.html">mftools.preprocess package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#module-mftools.misc">mftools.misc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mftools.html#module-mftools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mftools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="mftools.html">mftools package</a> &raquo;</li>
+      <li>mftools.measure package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mftools.measure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mftools-measure-package">
+<h1>mftools.measure package<a class="headerlink" href="#mftools-measure-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-mftools.measure.grain_size">
+<span id="mftools-measure-grain-size-module"></span><h2>mftools.measure.grain_size module<a class="headerlink" href="#module-mftools.measure.grain_size" title="Permalink to this headline"></a></h2>
+<p>Automatic grain size measurement functions following [1]. Each function takes a binary image as input.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and Automatic
+Image Analysis</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.chord_length">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">chord_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_scans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_length</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.chord_length" title="Permalink to this definition"></a></dt>
+<dd><p>Perform intercept (chord) length method with randomly orientated scan lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>n_scans</strong> (<em>int</em>) – Number of randomly orientated line scans to perform.</p></li>
+<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (um).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cl</strong> – List of chord lengths.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
+Automatic Image Analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.chord_length_uniform">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">chord_length_uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_scans</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.chord_length_uniform" title="Permalink to this definition"></a></dt>
+<dd><p>Perform intercept (chord) length method with uniform grid of scan lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>n_scans</strong> (<em>int</em>) – Number of line scans in both the horizontal and vertical direction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cl</strong> – List of chord lengths.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.grain_areas">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">grain_areas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.grain_areas" title="Permalink to this definition"></a></dt>
+<dd><p>Perform individual grain area method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ga</strong> – List of grain areas.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
+Automatic Image Analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.grain_count">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">grain_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.grain_count" title="Permalink to this definition"></a></dt>
+<dd><p>Perform intersection count method. (REQUIRES OMMISSION OF GRAINS CROSSING THE BOUNDARY OF THE IMAGE FIELD)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>gc</strong> – Number of grains per um^2.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
+Automatic Image Analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.intersection_count">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">intersection_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_scans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_length</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.intersection_count" title="Permalink to this definition"></a></dt>
+<dd><p>Perform intersection count method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+<li><p><strong>n_scans</strong> (<em>int</em>) – Number of randomly orientated line scans to perform.</p></li>
+<li><p><strong>min_length</strong> (<em>float</em>) – Minimum scan line length to include in measurements (um).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ic</strong> – List of intersection counts over true length of scan lines.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
+Automatic Image Analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.grain_size.l_over_a">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.grain_size.</span></span><span class="sig-name descname"><span class="pre">l_over_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">um_per_px</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/grain_size.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.grain_size.l_over_a" title="Permalink to this definition"></a></dt>
+<dd><p>Perform grain boundary length/area method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p></li>
+<li><p><strong>um_per_px</strong> (<em>float</em>) – Scaling (um per pixel).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>loa</strong> – List containing length over area for each grain (excluding grains which intersect the edge of the image field).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of float</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets">1</span></dt>
+<dd><p>ASTM E1382−97 (2015) Standard Test Methods for Determining Average Grain Size Using Semiautomatic and
+Automatic Image Analysis</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mftools.measure.scaling">
+<span id="mftools-measure-scaling-module"></span><h2>mftools.measure.scaling module<a class="headerlink" href="#module-mftools.measure.scaling" title="Permalink to this headline"></a></h2>
+<p>Functions for determining micrograph scaling.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.scaling.determine_scaling">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.scaling.</span></span><span class="sig-name descname"><span class="pre">determine_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_length_um</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_frac</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/scaling.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.scaling.determine_scaling" title="Permalink to this definition"></a></dt>
+<dd><p>Determine um per pixels scaling for an image provided the bar length in um and the fraction of the image for
+which it occupies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
+<li><p><strong>bar_length_um</strong> (<em>float</em>) – Length of scale bar (um).</p></li>
+<li><p><strong>bar_frac</strong> (<em>float</em>) – Fraction of the image width occupied by the scale bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>um_per_px</strong> – Scaling (um per px).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mftools.measure.volume_fraction">
+<span id="mftools-measure-volume-fraction-module"></span><h2>mftools.measure.volume_fraction module<a class="headerlink" href="#module-mftools.measure.volume_fraction" title="Permalink to this headline"></a></h2>
+<p>Functions for detemining volume fraction. Each function takes a binary image as input.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mftools.measure.volume_fraction.vol_frac">
+<span class="sig-prename descclassname"><span class="pre">mftools.measure.volume_fraction.</span></span><span class="sig-name descname"><span class="pre">vol_frac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/measure/volume_fraction.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.measure.volume_fraction.vol_frac" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate volume fraction of white space in binary image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>image</strong> (<em>ndarray</em>) – Binary image.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>vf</strong> – Percentage white space in image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mftools.measure">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mftools.measure" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mftools.fingerprint.html" class="btn btn-neutral float-left" title="mftools.fingerprint package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mftools.preprocess.html" class="btn btn-neutral float-right" title="mftools.preprocess package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mike White.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

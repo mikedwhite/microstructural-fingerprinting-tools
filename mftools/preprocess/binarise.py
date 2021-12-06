@@ -8,12 +8,15 @@ from skimage.filters import threshold_niblack, threshold_sauvola, threshold_otsu
 from sklearn.cluster import KMeans
 
 
-def niblack(image: np.ndarray, window_size: int = 15,
-            k: float = 0.2) -> np.ndarray:
-    """Return binary image image > T for T given by
-        T = mu(x,y) - hist_1*sigma(x,y),
-    where mu(x,y) and sigm(x,y) are the mean and standard deviation, respectively, of the square neighbourhood with side
-    length window_size, centred at pixel (x,y) and hist_1 is a tunable scale factor applied to the standard deviation.
+def niblack(image, window_size=15, k=0.2):
+    """Return binary image such that all pixels with a value > :math:`T` are set to 1 and otherwise set to 0, where
+    :math:`T` is given by
+
+    .. math::
+        T = \\mu(x,y) - k * \\sigma(x,y),
+
+    where :math:`\\mu(x,y)` and :math`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
+    neighbourhood with side length window_size, centred at pixel :math:`(x,y)` and :math:`k` is a tunable scale factor.
 
     Parameters
     ----------
@@ -21,17 +24,14 @@ def niblack(image: np.ndarray, window_size: int = 15,
     image : ndarray
         Input image. Must be grayscale.
     window_size : int, optional
-        Side length of sliding square neighbourhood. Must be odd (15, by
-        default).
+        Side length of sliding square neighbourhood. Must be odd (15, by default).
     k : float, optional
-        Scale factor for standard deviation in Niblack formula (0.2, by
-        default).
+        Scale factor for standard deviation in Niblack formula (0.2, by default).
 
     Returns
     -------
     image_binary : ndarray
-        Binarised image. Pixels (x,y) where image(x,y) > T are assumed to be
-        foreground.
+        Binarised image.
     """
 
     T = threshold_niblack(image, window_size, k)
@@ -40,13 +40,16 @@ def niblack(image: np.ndarray, window_size: int = 15,
     return image_binary
 
 
-def sauvola(image: np.ndarray, window_size: int = 15, k: float = 0.2,
-            R: Optional[float] = None) -> np.ndarray:
-    """Return binary image image > T for T given by
-        T = mu(x,y)*(1 + hist_1*((sigma(x,y)/R) - 1)),
-    where mu(x,y) and sigm(x,y) are the mean and standard deviation, respectively, of the square neighbourhood with side
-    length window_size, centred at pixel (x,y), hist_1 is a tunable scale factor applied to the standard deviation and R
-    is the dynamic range of standard deviation.
+def sauvola(image, window_size=15, k=0.2, R=None):
+    """Return binary image such that all pixels with a value > :math:`T` are set to 1 and otherwise set to 0, where
+    :math:`T` is given by
+
+    .. math::
+        T = \\mu(x,y)*(1 + k * ((\\sigma(x,y)/R) - 1)),
+
+    where :math:`\\mu(x,y)` and :math:`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
+    neighbourhood with side length window_size, centred at pixel :math:`(x,y)`, :math:`k` is a tunable scale factor and
+    :math:`R` is the dynamic range of standard deviation.
 
     Parameters
     ----------
@@ -54,20 +57,16 @@ def sauvola(image: np.ndarray, window_size: int = 15, k: float = 0.2,
     image : ndarray
         Input image. Must be grayscale.
     window_size : int, optional
-        Side length of sliding square neighbourhood. Must be odd (15, by
-        default).
+        Side length of sliding square neighbourhood. Must be odd (15, by default).
     k : float, optional
-        Scale factor for standard deviation in Sauvola formula (0.2, by
-        default).
+        Scale factor for standard deviation in Sauvola formula (0.2, by default).
     R : float, optional
-        Dynamic range of standard deviation. If None (default), R is set to half
-        of the image dtype range.
+        Dynamic range of standard deviation. If None (default), R is set to half of the image dtype range.
 
     Returns
     -------
     image_binary : ndarray
-        Binarised image. Pixels (x,y) where image(x,y) > T are assumed to be
-        foreground.
+        Binarised image.
     """
 
     T = threshold_sauvola(image, window_size, k, R)
@@ -76,24 +75,23 @@ def sauvola(image: np.ndarray, window_size: int = 15, k: float = 0.2,
     return image_binary
 
 
-def otsu(image, n_bins=256, T_shift=0) -> np.ndarray:
-    """Return binary image image > T for T determined globally by Otsu's method.
+def otsu(image, n_bins=256, T_shift=0):
+    """Return binary image such that all pixels with a value > :math:`T` are set to 1 and otherwise set to 0, where
+    :math:`T` is defined globally by Otsu's method.
 
     Parameters
     ----------
     image : ndarray
         Input image. Must be grayscale.
     n_bins : int, optional
-        Number of histogram bins for computing global threshold (256, by
-        default).
+        Number of histogram bins for computing global threshold (256, by default).
     T_shift : float
-        Alteration to make to detected threshold, T (0, by default).
+        Alteration to make to detected threshold, :math:`T` (0, by default).
 
     Returns
     -------
     image_binary : ndarray
-        Binarised image. Pixels (x,y) where image(x,y) > T are assumed to be
-        foreground.
+        Binarised image.
     """
 
     T = threshold_otsu(image, n_bins)
@@ -102,8 +100,8 @@ def otsu(image, n_bins=256, T_shift=0) -> np.ndarray:
     return image_binary
 
 
-def k_means(image, n_clusters=2) -> np.ndarray:
-    """Return segmented image determined via hist_1-means clustering, where the number of segmented regions is
+def k_means(image, n_clusters=2):
+    """Return segmented image determined via :math:`k`-means clustering, where the number of segmented regions is
     n_clusters. Setting n_clusters = 2 (default) returns a binarised image.
 
     Parameters

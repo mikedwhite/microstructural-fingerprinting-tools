@@ -14,7 +14,7 @@ from skimage.segmentation import clear_border
 from mftools.misc import remove_outliers
 
 
-def l_over_a(image: np.ndarray, um_per_px: float) -> list:
+def l_over_a(image, um_per_px):
     """Perform grain boundary length/area method.
 
     Parameters
@@ -67,7 +67,7 @@ def l_over_a(image: np.ndarray, um_per_px: float) -> list:
     return loa
 
 
-def intersection_count(image: np.ndarray, um_per_px: float, n_scans: int, min_length: float) -> list:
+def intersection_count(image, um_per_px, n_scans, min_length):
     """Perform intersection count method.
 
     Parameters
@@ -123,7 +123,7 @@ def intersection_count(image: np.ndarray, um_per_px: float, n_scans: int, min_le
                 x.append(int(np.random.uniform(0, image.shape[1])))
 
         # Compute intensity profile of scan line
-        line_profile = measure.profile_line(image, (x[0],x[1]), (x[2],x[3]))
+        line_profile = measure.profile_line(image, (x[0], x[1]), (x[2], x[3]))
 
         # Calculate length of scan line
         line_length = np.sqrt((x[0]-x[2])**2 + (x[1]-x[3])**2) * um_per_px
@@ -144,8 +144,7 @@ def intersection_count(image: np.ndarray, um_per_px: float, n_scans: int, min_le
     return ic
 
 
-def chord_length(image: np.ndarray, um_per_px: float, n_scans: int,
-                 min_length: float) -> list:
+def chord_length(image, um_per_px, n_scans, min_length):
     """Perform intercept (chord) length method with randomly orientated scan lines.
 
     Parameters
@@ -204,7 +203,7 @@ def chord_length(image: np.ndarray, um_per_px: float, n_scans: int,
                 x.append(int(np.random.uniform(0, image.shape[1])))
 
         # Compute intensity profile of scan line
-        line_profile = measure.profile_line(image, (x[0],x[1]), (x[2],x[3]))
+        line_profile = measure.profile_line(image, (x[0], x[1]), (x[2], x[3]))
 
         # Calculate length of scan line
         line_length = np.sqrt((x[0]-x[2])**2 + (x[1]-x[3])**2) * um_per_px
@@ -255,8 +254,7 @@ def chord_length(image: np.ndarray, um_per_px: float, n_scans: int,
     return cl
 
 
-def chord_length_uniform(image : np.ndarray, um_per_px: float,
-                         n_scans: int) -> list:
+def chord_length_uniform(image, um_per_px, n_scans):
     """Perform intercept (chord) length method with uniform grid of scan lines.
 
     Parameters
@@ -288,9 +286,6 @@ def chord_length_uniform(image : np.ndarray, um_per_px: float,
         dst = (int(n * image.shape[0] / n_scans), image.shape[1])
         scan_line = measure.profile_line(image, src, dst)
 
-        # Calculate length of scan line
-        line_length = scan_line.size * um_per_px
-
         # Calculate length of total intersection with alpha grains
         total_alpha_length_x += [np.sum(scan_line) * um_per_px]
 
@@ -301,9 +296,6 @@ def chord_length_uniform(image : np.ndarray, um_per_px: float,
         src = (0, int(n * image.shape[1] / n_scans))
         dst = (image.shape[0], int(n * image.shape[1] / n_scans))
         scan_line = measure.profile_line(image, src, dst)
-
-        # Calculate length of scan line
-        line_length = scan_line.size * um_per_px
 
         # Calculate length of total intersection with alpha grains
         total_alpha_length_y += [np.sum(scan_line) * um_per_px]
@@ -321,7 +313,7 @@ def chord_length_uniform(image : np.ndarray, um_per_px: float,
     return cl
 
 
-def grain_count(image: np.ndarray, um_per_px: float) -> int:
+def grain_count(image, um_per_px):
     """Perform intersection count method. (REQUIRES OMMISSION OF GRAINS CROSSING THE BOUNDARY OF THE IMAGE FIELD)
 
     Parameters
@@ -354,7 +346,7 @@ def grain_count(image: np.ndarray, um_per_px: float) -> int:
     return gc
 
 
-def grain_areas(image: np.ndarray, um_per_px: float) -> list:
+def grain_areas(image, um_per_px):
     """Perform individual grain area method.
 
     Parameters

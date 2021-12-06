@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def vol_frac(image: np.ndarray) -> np.ndarray:
+def vol_frac(image):
     """Calculate volume fraction of white space in binary image.
 
     Parameters

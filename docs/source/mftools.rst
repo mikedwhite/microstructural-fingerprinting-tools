@@ -1,29 +1,24 @@
 mftools package
 ===============
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mftools.assess
+   mftools.fingerprint
+   mftools.measure
+   mftools.preprocess
+
 Submodules
 ----------
 
-mftools.classifiers module
---------------------------
+mftools.misc module
+-------------------
 
-.. automodule:: mftools.classifiers
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-mftools.fingerprints module
----------------------------
-
-.. automodule:: mftools.fingerprints
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-mftools.generate_features module
----------------------------------
-
-.. automodule:: mftools.generate_features
+.. automodule:: mftools.misc
    :members:
    :undoc-members:
    :show-inheritance:

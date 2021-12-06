@@ -1,18 +1,19 @@
-.. microstructural-fingerprinting-tools documentation master file, created by
-   sphinx-quickstart on Fri Nov 12 12:01:54 2021.
+.. mftools documentation master file, created by
+   sphinx-quickstart on Mon Dec  6 13:50:47 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Microstructural Fingerprinting Tools
-====================================
+Welcome to mftools's documentation!
+===================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    intro
-   modules
    mftools
+
+
 
 Indices and tables
 ==================

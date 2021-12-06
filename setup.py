@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='microstructural-fingerprinting-tools',
-    version='0.0.1',
+    version='0.0.2',
     author='Mike White',
     author_email='michael.white-3@postgrad.manchester.ac.uk',
     description='Tools for constructing fingerprint vectors from microstructural image data',
