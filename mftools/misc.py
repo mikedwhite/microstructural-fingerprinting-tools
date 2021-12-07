@@ -6,7 +6,10 @@ import numpy as np
 
 
 def remove_outliers(x, n_std=2):
-    """Remove outliers, i.e. values, :math:`x_i`, which lie outside the range :math:`x_i +- std(x) * n_std`.
+    r"""Remove outliers, i.e. values, :math:`x_i`, which lie outside the range
+
+    .. math::
+        `x_i +- \text{std}(x) * n_{\text{std}`.
 
     Parameters
     ----------
