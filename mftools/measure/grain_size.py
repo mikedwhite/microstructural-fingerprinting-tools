@@ -15,14 +15,14 @@ from mftools.misc import remove_outliers
 
 
 def l_over_a(image, um_per_px):
-    """Perform grain boundary length/area method.
+    r"""Perform grain boundary length/area method.
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
 
     Returns
     -------
@@ -68,18 +68,18 @@ def l_over_a(image, um_per_px):
 
 
 def intersection_count(image, um_per_px, n_scans, min_length):
-    """Perform intersection count method.
+    r"""Perform intersection count method.
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
     n_scans : int
         Number of randomly orientated line scans to perform.
     min_length : float
-        Minimum scan line length to include in measurements (:math:`\\mu`m).
+        Minimum scan line length to include in measurements (:math:`\mu \text{m}`).
 
     Returns
     -------
@@ -145,18 +145,18 @@ def intersection_count(image, um_per_px, n_scans, min_length):
 
 
 def chord_length(image, um_per_px, n_scans, min_length):
-    """Perform intercept (chord) length method with randomly orientated scan lines.
+    r"""Perform intercept (chord) length method with randomly orientated scan lines.
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
     n_scans : int
         Number of randomly orientated line scans to perform.
     min_length : float
-        Minimum scan line length to include in measurements (:math:`\\mu`m).
+        Minimum scan line length to include in measurements (:math:`\mu \text{m}`).
 
     Returns
     -------
@@ -255,14 +255,14 @@ def chord_length(image, um_per_px, n_scans, min_length):
 
 
 def chord_length_uniform(image, um_per_px, n_scans):
-    """Perform intercept (chord) length method with uniform grid of scan lines.
+    r"""Perform intercept (chord) length method with uniform grid of scan lines.
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
     n_scans : int
         Number of line scans in both the horizontal and vertical direction.
 
@@ -314,19 +314,19 @@ def chord_length_uniform(image, um_per_px, n_scans):
 
 
 def grain_count(image, um_per_px):
-    """Perform intersection count method. (REQUIRES OMMISSION OF GRAINS CROSSING THE BOUNDARY OF THE IMAGE FIELD)
+    r"""Perform intersection count method. (REQUIRES OMMISSION OF GRAINS CROSSING THE BOUNDARY OF THE IMAGE FIELD)
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
 
     Returns
     -------
     gc : int
-        Number of grains per :math:`\\mu`m:math:`^2`.
+        Number of grains per :math:`\mu \text{m}^2`.
 
     References
     ----------
@@ -347,14 +347,14 @@ def grain_count(image, um_per_px):
 
 
 def grain_areas(image, um_per_px):
-    """Perform individual grain area method.
+    r"""Perform individual grain area method.
 
     Parameters
     ----------
     image : ndarray
         Binary image.
     um_per_px : float
-        Scaling (:math:`\\mu`m per pixel).
+        Scaling (:math:`\mu \text{m}` per pixel).
 
     Returns
     -------

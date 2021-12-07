@@ -3,7 +3,7 @@
 
 
 def determine_scaling(image, bar_length_um, bar_frac):
-    """Determine um per pixels scaling for an image provided the bar length in um and the fraction of the image for
+    r"""Determine um per pixels scaling for an image provided the bar length in um and the fraction of the image for
     which it occupies.
 
     Parameters
@@ -11,20 +11,20 @@ def determine_scaling(image, bar_length_um, bar_frac):
     image : ndarray
         Input image. Must be grayscale.
     bar_length_um : float
-        Length of scale bar (:math:`\\mu`m).
+        Length of scale bar (:math:`\mu \text{m}`).
     bar_frac : float
         Fraction of the image width occupied by the scale bar.
 
     Returns
     -------
     um_per_px : float
-        Scaling (:math:`\\mu`m per px).
+        Scaling (:math:`\mu \text{m}` per px).
     """
 
     # Convert bar length from um to pixels
     bar_length_px = bar_frac * image.shape[1]
 
     # Determine conversion
-    um_per_px = bar_length_um/bar_length_px
+    um_per_px = bar_length_um / bar_length_px
 
     return um_per_px

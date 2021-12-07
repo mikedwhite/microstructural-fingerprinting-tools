@@ -13,7 +13,7 @@ def niblack(image, window_size=15, k=0.2):
     .. math::
         T = \\mu(x,y) - k * \\sigma(x,y),
 
-    where :math:`\\mu(x,y)` and :math`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
+    where :math:`\\mu(x,y)` and :math:`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
     neighbourhood with side length window_size, centred at pixel :math:`(x,y)` and :math:`k` is a tunable scale factor.
 
     Parameters

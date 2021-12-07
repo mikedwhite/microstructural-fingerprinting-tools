@@ -7,12 +7,12 @@ from skimage import img_as_float
 
 
 def hmf_gauss(image, sigma=1., alpha=0., beta=1., pass_type='low'):
-    """Apply emphasised Gaussian homomorphic filter of the form
+    r"""Apply emphasised Gaussian homomorphic filter of the form
 
     .. math::
-        H_{emphasis} = \\alpha + \\beta * H,
+        H_{\text{emphasis}} = \alpha + \beta * H,
 
-    where :math:`H` is a Gaussian filter with standard deviation :math:`\\sigma`.
+    where :math:`H` is a Gaussian filter with standard deviation :math:`\sigma`.
 
     Parameters
     ----------
