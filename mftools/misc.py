@@ -9,7 +9,9 @@ def remove_outliers(x, n_std=2):
     r"""Remove outliers, i.e. values, :math:`x_i`, which lie outside the range
 
     .. math::
-        `x_i +- \text{std}(x) * n_{\text{std}`.
+        x_i \pm \text{std}(x) * n_{\text{std}},
+
+    where :math:`n_{\text{std}}` denotes the number of standard deviations specified.
 
     Parameters
     ----------

@@ -132,7 +132,8 @@
 <span class="sig-prename descclassname"><span class="pre">mftools.misc.</span></span><span class="sig-name descname"><span class="pre">remove_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/misc.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.misc.remove_outliers" title="Permalink to this definition"></a></dt>
 <dd><p>Remove outliers, i.e. values, <span class="math notranslate nohighlight">\(x_i\)</span>, which lie outside the range</p>
 <div class="math notranslate nohighlight">
-\[`x_i +- \text{std}(x) * n_{\text{std}`.\]</div>
+\[x_i \pm \text{std}(x) * n_{\text{std}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_{\text{std}}\)</span> denotes the number of standard deviations specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
