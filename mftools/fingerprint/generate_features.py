@@ -153,8 +153,7 @@ def generate_feature_cnn_featdict(image, cnn='alexnet'):
     -------
     xfeat : ndarray
         Array of features. Has shape :math:`(N, d)`, where :math:`N` is the number of features in the final convolution
-        output and d is
-        the dimension of each feature.
+        output and d is the dimension of each feature.
     """
 
     if cnn == 'alexnet':

@@ -14,8 +14,8 @@ def get_dict(input_path, micro_list, feature_generator, cnn=None, red=False):
         Path to image data.
     micro_list : list
         List of image filenames.
-    feature_generator : mftools.generate_features
-        Feature generation method. Options are available in the generate_features module.
+    feature_generator : mftools.fingerprint.generate_features
+        Feature generation method. Options are available in the mftools.fingerprint.generate_features module.
     cnn : str or None
         None (default)
             Feature generator is not based on CNN architecture.
@@ -28,7 +28,7 @@ def get_dict(input_path, micro_list, feature_generator, cnn=None, red=False):
             Full feature stack is used for fingerprint construction.
         True
             Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
-            vector.
+            vector (requires :math:`N > d`).
 
     Returns
     -------
@@ -291,8 +291,8 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=
         Image data.
     kmeans : sklearn.cluster.kmeans
         :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
-    feature_generator : mftools.generate_features
-        Feature generation method. Options are available in the generate_features module.
+    feature_generator : mftools.fingerprint.generate_features
+        Feature generation method. Options are available in the mftools.fingerprint.generate_features module.
     order : str
         'h0' (default)
             Return :math:`H_0` fingerprint.
@@ -316,7 +316,7 @@ def get_fingerprint(image, kmeans, feature_generator, order='h0', cnn=None, red=
             Full feature stack is used for fingerprint construction.
         True
             Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
-            vector.
+            vector (requires :math:`N > d`).
 
     Returns
     -------
@@ -369,8 +369,8 @@ def get_fingerprints_hl(input_path, micro_list, kmeans, feature_generator, order
         List of image filenames.
     kmeans : sklearn.cluster.kmeans
         :math:`k`-means cluster model corresponding to dictionary of features from the whole dataset.
-    feature_generator : mftools.generate_features
-        Feature generation method. Options are available in the generate_features module.
+    feature_generator : mftools.fingerprint.generate_features
+        Feature generation method. Options are available in the mftools.fingerprint.generate_features module.
     order : str
         'h0' (default)
             Return :math:`H_0` fingerprint.
@@ -394,7 +394,7 @@ def get_fingerprints_hl(input_path, micro_list, kmeans, feature_generator, order
             Full feature stack is used for fingerprint construction.
         True
             Feature stack is reduced via PCA to shape :math:`(d, d)`, where :math:`d` is the dimension of each feature
-            vector.
+            vector (requires :math:`N > d`).
 
     Returns
     -------
@@ -429,8 +429,8 @@ def get_fingerprints_cnn(input_path, micro_list, feature_generator, cnn='alexnet
         Path to image data.
     micro_list : list
         List of image filenames.
-    feature_generator : mftools.generate_features
-        Feature generation method. Options are available in the generate_features module.
+    feature_generator : mftools.fingerprint.generate_features
+        Feature generation method. Options are available in the mftools.fingerprint.generate_features module.
     cnn : str
         'alexnet' (default)
             Generates CNN features from AlexNet architecture.

@@ -104,12 +104,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{train}}\)</span> is the number of
+fingerprints within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{test}}\)</span> is the number of
+fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, )\)</span>.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -128,12 +128,12 @@ within the test set and <span class="math notranslate nohighlight">\(d\)</span> 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{train}}\)</span> is the number of
+fingerprints within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{test}}\)</span> is the number of
+fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, )\)</span>.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
 <li><p><strong>frac_data</strong> (<em>float</em>) – Fraction of ytrain used to initialise label propagation. Must have range (0, 1).</p></li>
 </ul>
 </dd>
@@ -155,12 +155,12 @@ validation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{test}, )\)</span>.</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{train}}\)</span> is the number of
+fingerprints within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{test}}\)</span> is the number of
+fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytrain</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, )\)</span>.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -180,11 +180,11 @@ clustering via the <cite>method</cite> parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{train}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
-<li><p><strong>xtest</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{train}, )\)</span>.</p></li>
-<li><p><strong>ytrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{test}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{train}\)</span> is the number of fingerprints
-within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtrain</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{train}}\)</span> is the number of
+fingerprints within the training set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>xtest</strong> (<em>ndarray</em>) – Array of fingerprints with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, d)\)</span>, where <span class="math notranslate nohighlight">\(n_{\text{test}}\)</span> is the number of
+fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
+<li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
 <li><p><strong>nclass</strong> (<em>int</em>) – Number of classes to split data into.</p></li>
 <li><p><strong>method</strong> (<em>str</em>) – <dl class="simple">
 <dt>‘kmeans’ (deafult)</dt><dd><p><span class="math notranslate nohighlight">\(k\)</span>-means clustering.</p>
@@ -221,7 +221,7 @@ within the test set and <span class="math notranslate nohighlight">\(d\)</span> 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Mike White.</p>
+    <p>&#169; Copyright 2021, University of Manchester.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

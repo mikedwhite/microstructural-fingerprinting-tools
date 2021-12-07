@@ -9,21 +9,21 @@ from sklearn.svm import SVC
 
 
 def train_svm(xtrain, xtest, ytrain, ytest, kernel='linear'):
-    """Train support vector machine (SVM) on training data, validate on test data and compute accuracy score for the
+    r"""Train support vector machine (SVM) on training data, validate on test data and compute accuracy score for the
     validation.
 
     Parameters
     ----------
     xtrain : ndarray
-        Array of fingerprints with shape :math:`(n_{train}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the training set and :math:`d` is the length of each fingerprint.
+        Array of fingerprints with shape :math:`(n_{\text{train}}, d)`, where :math:`n_{\text{train}}` is the number of
+        fingerprints within the training set and :math:`d` is the length of each fingerprint.
     xtest : ndarray
-        List of labels corresponding to xtrain, with shape :math:`(n_{train}, )`.
+        Array of fingerprints with shape :math:`(n_{\text{test}}, d)`, where :math:`n_{\text{test}}` is the number of
+        fingerprints within the test set and :math:`d` is the length of each fingerprint.
     ytrain : ndarray
-        Array of fingerprints with shape :math:`(n_{test}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the test set and :math:`d` is the length of each fingerprint.
+        List of labels corresponding to xtrain, with shape :math:`(n_{\text{train}}, )`.
     ytest : ndarray
-        List of labels corresponding to xtest, with shape :math:`(n_{test}, )`.
+        List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
 
     Returns
     -------
@@ -40,20 +40,20 @@ def train_svm(xtrain, xtest, ytrain, ytest, kernel='linear'):
 
 
 def train_rf(xtrain, xtest, ytrain, ytest):
-    """Train random forest on training data, validate on test data and compute accuracy score for the validation.
+    r"""Train random forest on training data, validate on test data and compute accuracy score for the validation.
 
     Parameters
     ----------
     xtrain : ndarray
-        Array of fingerprints with shape :math:`(n_{train}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the training set and :math:`d` is the length of each fingerprint.
+        Array of fingerprints with shape :math:`(n_{\text{train}}, d)`, where :math:`n_{\text{train}}` is the number of
+        fingerprints within the training set and :math:`d` is the length of each fingerprint.
     xtest : ndarray
-        List of labels corresponding to xtrain, with shape :math:`(n_{train}, )`.
+        Array of fingerprints with shape :math:`(n_{\text{test}}, d)`, where :math:`n_{\text{test}}` is the number of
+        fingerprints within the test set and :math:`d` is the length of each fingerprint.
     ytrain : ndarray
-        Array of fingerprints with shape :math:`(n_{test}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the test set and :math:`d` is the length of each fingerprint.
+        List of labels corresponding to xtrain, with shape :math:`(n_{\text{train}}, )`.
     ytest : ndarray
-        List of labels corresponding to xtest, with shape :math:`(n_{test}, )`.
+        List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
 
     Returns
     -------
@@ -70,19 +70,19 @@ def train_rf(xtrain, xtest, ytrain, ytest):
 
 
 def train_ul(xtrain, xtest, ytest, nclass, method='kmeans'):
-    """Perform unsupervised learning (UL) on training data and compute accuracy score. Supports k-means and spectral
+    r"""Perform unsupervised learning (UL) on training data and compute accuracy score. Supports k-means and spectral
     clustering via the `method` parameter.
 
     Parameters
     ----------
     xtrain : ndarray
-        Array of fingerprints with shape :math:`(n_{train}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the training set and :math:`d` is the length of each fingerprint.
+        Array of fingerprints with shape :math:`(n_{\text{train}}, d)`, where :math:`n_{\text{train}}` is the number of
+        fingerprints within the training set and :math:`d` is the length of each fingerprint.
     xtest : ndarray
-        List of labels corresponding to xtrain, with shape :math:`(n_{train}, )`.
-    ytrain : ndarray
-        Array of fingerprints with shape :math:`(n_{test}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the test set and :math:`d` is the length of each fingerprint.
+        Array of fingerprints with shape :math:`(n_{\text{test}}, d)`, where :math:`n_{\text{test}}` is the number of
+        fingerprints within the test set and :math:`d` is the length of each fingerprint.
+    ytest : ndarray
+        List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
     nclass : int
         Number of classes to split data into.
     method : str
@@ -141,20 +141,20 @@ def train_ul(xtrain, xtest, ytest, nclass, method='kmeans'):
 
 
 def train_ssl(xtrain, xtest, ytrain, ytest, frac_data):
-    """Propagate labels via semi-supervised learning (SSL) and compute accuracy score.
+    r"""Propagate labels via semi-supervised learning (SSL) and compute accuracy score.
 
     Parameters
     ----------
     xtrain : ndarray
-        Array of fingerprints with shape :math:`(n_{train}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the training set and :math:`d` is the length of each fingerprint.
+        Array of fingerprints with shape :math:`(n_{\text{train}}, d)`, where :math:`n_{\text{train}}` is the number of
+        fingerprints within the training set and :math:`d` is the length of each fingerprint.
     xtest : ndarray
-        List of labels corresponding to xtrain, with shape :math:`(n_{train}, )`.
+        Array of fingerprints with shape :math:`(n_{\text{test}}, d)`, where :math:`n_{\text{test}}` is the number of
+        fingerprints within the test set and :math:`d` is the length of each fingerprint.
     ytrain : ndarray
-        Array of fingerprints with shape :math:`(n_{test}, d)`, where :math:`n_{train}` is the number of fingerprints
-        within the test set and :math:`d` is the length of each fingerprint.
+        List of labels corresponding to xtrain, with shape :math:`(n_{\text{train}}, )`.
     ytest : ndarray
-        List of labels corresponding to xtest, with shape :math:`(n_{test}, )`.
+        List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
     frac_data : float
         Fraction of ytrain used to initialise label propagation. Must have range (0, 1).
 

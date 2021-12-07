@@ -107,7 +107,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_path</strong> (<em>str</em>) – Path to image data.</p></li>
 <li><p><strong>micro_list</strong> (<em>list</em>) – List of image filenames.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
+<li><p><strong>feature_generator</strong> (<em>mftools.fingerprint.generate_features</em>) – Feature generation method. Options are available in the mftools.fingerprint.generate_features module.</p></li>
 <li><p><strong>cnn</strong> (<em>str</em><em> or </em><em>None</em>) – <dl class="simple">
 <dt>None (default)</dt><dd><p>Feature generator is not based on CNN architecture.</p>
 </dd>
@@ -121,7 +121,7 @@
 <dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
 </dd>
 <dt>True</dt><dd><p>Feature stack is reduced via PCA to shape <span class="math notranslate nohighlight">\((d, d)\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the dimension of each feature
-vector.</p>
+vector (requires <span class="math notranslate nohighlight">\(N &gt; d\)</span>).</p>
 </dd>
 </dl>
 </p></li>
@@ -147,7 +147,7 @@ fingerprint.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Image data.</p></li>
 <li><p><strong>kmeans</strong> (<em>sklearn.cluster.kmeans</em>) – <span class="math notranslate nohighlight">\(k\)</span>-means cluster model corresponding to dictionary of features from the whole dataset.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
+<li><p><strong>feature_generator</strong> (<em>mftools.fingerprint.generate_features</em>) – Feature generation method. Options are available in the mftools.fingerprint.generate_features module.</p></li>
 <li><p><strong>order</strong> (<em>str</em>) – <dl class="simple">
 <dt>‘h0’ (default)</dt><dd><p>Return <span class="math notranslate nohighlight">\(H_0\)</span> fingerprint.</p>
 </dd>
@@ -174,7 +174,7 @@ fingerprint.</p>
 <dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
 </dd>
 <dt>True</dt><dd><p>Feature stack is reduced via PCA to shape <span class="math notranslate nohighlight">\((d, d)\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the dimension of each feature
-vector.</p>
+vector (requires <span class="math notranslate nohighlight">\(N &gt; d\)</span>).</p>
 </dd>
 </dl>
 </p></li>
@@ -198,7 +198,7 @@ vector.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_path</strong> (<em>str</em>) – Path to image data.</p></li>
 <li><p><strong>micro_list</strong> (<em>list</em>) – List of image filenames.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
+<li><p><strong>feature_generator</strong> (<em>mftools.fingerprint.generate_features</em>) – Feature generation method. Options are available in the mftools.fingerprint.generate_features module.</p></li>
 <li><p><strong>cnn</strong> (<em>str</em>) – <dl class="simple">
 <dt>‘alexnet’ (default)</dt><dd><p>Generates CNN features from AlexNet architecture.</p>
 </dd>
@@ -229,7 +229,7 @@ fingerprint.</p>
 <li><p><strong>input_path</strong> (<em>str</em>) – Path to image data.</p></li>
 <li><p><strong>micro_list</strong> (<em>list</em>) – List of image filenames.</p></li>
 <li><p><strong>kmeans</strong> (<em>sklearn.cluster.kmeans</em>) – <span class="math notranslate nohighlight">\(k\)</span>-means cluster model corresponding to dictionary of features from the whole dataset.</p></li>
-<li><p><strong>feature_generator</strong> (<em>mftools.generate_features</em>) – Feature generation method. Options are available in the generate_features module.</p></li>
+<li><p><strong>feature_generator</strong> (<em>mftools.fingerprint.generate_features</em>) – Feature generation method. Options are available in the mftools.fingerprint.generate_features module.</p></li>
 <li><p><strong>order</strong> (<em>str</em>) – <dl class="simple">
 <dt>‘h0’ (default)</dt><dd><p>Return <span class="math notranslate nohighlight">\(H_0\)</span> fingerprint.</p>
 </dd>
@@ -256,7 +256,7 @@ fingerprint.</p>
 <dt>False (default)</dt><dd><p>Full feature stack is used for fingerprint construction.</p>
 </dd>
 <dt>True</dt><dd><p>Feature stack is reduced via PCA to shape <span class="math notranslate nohighlight">\((d, d)\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the dimension of each feature
-vector.</p>
+vector (requires <span class="math notranslate nohighlight">\(N &gt; d\)</span>).</p>
 </dd>
 </dl>
 </p></li>
@@ -421,8 +421,7 @@ length of each feature.</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>xfeat</strong> – Array of features. Has shape <span class="math notranslate nohighlight">\((N, d)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the number of features in the final convolution
-output and d is
-the dimension of each feature.</p>
+output and d is the dimension of each feature.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -535,7 +534,7 @@ convolution layer.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Mike White.</p>
+    <p>&#169; Copyright 2021, University of Manchester.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

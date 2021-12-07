@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.abspath('../../mftools/'))
 # -- Project information -----------------------------------------------------
 
 project = 'mftools'
-copyright = '2021, Mike White'
+copyright = '2021, University of Manchester'
 author = 'Mike White'
 
 # The full version, including alpha/beta/rc tags
