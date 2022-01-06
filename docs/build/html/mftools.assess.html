@@ -161,6 +161,7 @@ fingerprints within the training set and <span class="math notranslate nohighlig
 fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
 <li><p><strong>ytrain</strong> (<em>ndarray</em>) – List of labels corresponding to xtrain, with shape <span class="math notranslate nohighlight">\((n_{\text{train}}, )\)</span>.</p></li>
 <li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
+<li><p><strong>kernel</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of kernel to use for training. Can be ‘linear’ or some other suitable kernel (see sklearn.svm.SVC).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -186,7 +187,7 @@ fingerprints within the training set and <span class="math notranslate nohighlig
 fingerprints within the test set and <span class="math notranslate nohighlight">\(d\)</span> is the length of each fingerprint.</p></li>
 <li><p><strong>ytest</strong> (<em>ndarray</em>) – List of labels corresponding to xtest, with shape <span class="math notranslate nohighlight">\((n_{\text{test}}, )\)</span>.</p></li>
 <li><p><strong>nclass</strong> (<em>int</em>) – Number of classes to split data into.</p></li>
-<li><p><strong>method</strong> (<em>str</em>) – <dl class="simple">
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – <dl class="simple">
 <dt>‘kmeans’ (deafult)</dt><dd><p><span class="math notranslate nohighlight">\(k\)</span>-means clustering.</p>
 </dd>
 <dt>’spectral’</dt><dd><p>Spectral clustering.</p>

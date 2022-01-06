@@ -14,7 +14,8 @@ def niblack(image, window_size=15, k=0.2):
         T = \\mu(x,y) - k * \\sigma(x,y),
 
     where :math:`\\mu(x,y)` and :math:`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
-    neighbourhood with side length window_size, centred at pixel :math:`(x,y)` and :math:`k` is a tunable scale factor.
+    neighbourhood with side length ``window_size``, centred at pixel :math:`(x,y)` and :math:`k` is a tunable scale
+    factor.
 
     Parameters
     ----------
@@ -46,8 +47,8 @@ def sauvola(image, window_size=15, k=0.2, R=None):
         T = \\mu(x,y)*(1 + k * ((\\sigma(x,y)/R) - 1)),
 
     where :math:`\\mu(x,y)` and :math:`\\sigma(x,y)` are the mean and standard deviation, respectively, of the square
-    neighbourhood with side length window_size, centred at pixel :math:`(x,y)`, :math:`k` is a tunable scale factor and
-    :math:`R` is the dynamic range of standard deviation.
+    neighbourhood with side length ``window_size``, centred at pixel :math:`(x,y)`, :math:`k` is a tunable scale
+    factor and :math:`R` is the dynamic range of standard deviation.
 
     Parameters
     ----------
@@ -98,15 +99,15 @@ def otsu(image, n_bins=256, T_shift=0):
     return image_binary
 
 
-def k_means(image, n_clusters=2):
+def k_means(image, nclust=2):
     """Return segmented image determined via :math:`k`-means clustering, where the number of segmented regions is
-    n_clusters. Setting n_clusters = 2 (default) returns a binarised image.
+    n_clusters. Setting ``nclust = 2`` (default) returns a binarised image.
 
     Parameters
     ----------
     image : ndarray
         Input image. Must be grayscale.
-    n_clusters : int, optional
+    nclust : int, optional
         Number of clusters to segment (2, by default).
 
     Returns
@@ -118,7 +119,7 @@ def k_means(image, n_clusters=2):
     image_vector = image.reshape(-1, 1)
     image_seg = np.zeros(image.shape)
 
-    k_means = KMeans(n_clusters, random_state=0).fit(image_vector)
+    k_means = KMeans(nclust, random_state=0).fit(image_vector)
     codebook = k_means.cluster_centers_
     labels = k_means.predict(image_vector)
     label_idx = 0

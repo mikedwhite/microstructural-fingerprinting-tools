@@ -17,7 +17,7 @@ def remove_outliers(x, n_std=2):
     ----------
     x : ndarray
         Input data.
-    n_std : int
+    n_std : int, optional
         Number of standard deviations to retain data within (2, by default).
 
     Returns

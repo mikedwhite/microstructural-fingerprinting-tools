@@ -24,6 +24,9 @@ def train_svm(xtrain, xtest, ytrain, ytest, kernel='linear'):
         List of labels corresponding to xtrain, with shape :math:`(n_{\text{train}}, )`.
     ytest : ndarray
         List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
+    kernel : str, optional
+        Type of kernel to use for training. Can be 'linear' (default) or some other suitable kernel (see
+        sklearn.svm.SVC).
 
     Returns
     -------
@@ -85,7 +88,7 @@ def train_ul(xtrain, xtest, ytest, nclass, method='kmeans'):
         List of labels corresponding to xtest, with shape :math:`(n_{\text{test}}, )`.
     nclass : int
         Number of classes to split data into.
-    method : str
+    method : str, optional
         'kmeans' (deafult)
             :math:`k`-means clustering.
         'spectral'

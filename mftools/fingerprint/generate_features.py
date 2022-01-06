@@ -7,7 +7,7 @@ from torchvision import models, transforms
 
 
 def generate_feature_sift(image):
-    """Extract scale invariant feature transform (SIFT) features from a single image.
+    r"""Extract scale invariant feature transform (SIFT) features from a single image.
 
     Parameters
     ----------
@@ -27,7 +27,7 @@ def generate_feature_sift(image):
 
 
 def generate_feature_surf(image):
-    """Extract speeded-up robust features (SURF) from a single image.
+    r"""Extract speeded-up robust features (SURF) from a single image.
 
     Parameters
     ----------
@@ -47,13 +47,13 @@ def generate_feature_surf(image):
 
 
 def generate_feature_cnn_flatten(image, cnn='alexnet'):
-    """Generate feature vector from final convolution layer by flattening.
+    r"""Generate feature vector from final convolution layer by flattening.
 
     Parameters
     ----------
     image : ndarray
         Image data.
-    cnn : str
+    cnn : str, optional
         'alexnet' (default)
             Generates CNN features from AlexNet architecture.
         'vgg'
@@ -93,13 +93,13 @@ def generate_feature_cnn_flatten(image, cnn='alexnet'):
 
 
 def generate_feature_cnn_maxpool(image, cnn='alexnet'):
-    """Generate single feature vector from final convolution layer of CNN via apply MaxPooling.
+    r"""Generate single feature vector from final convolution layer of CNN via apply MaxPooling.
 
     Parameters
     ----------
     image : ndarray
         Image data.
-    cnn : str
+    cnn : str, optional
         'alexnet' (default)
             Generates CNN features from AlexNet architecture.
         'vgg'
@@ -137,13 +137,13 @@ def generate_feature_cnn_maxpool(image, cnn='alexnet'):
 
 
 def generate_feature_cnn_featdict(image, cnn='alexnet'):
-    """Generate dictionary of features from CNN output.
+    r"""Generate dictionary of features from CNN output.
 
     Parameters
     ----------
     image : ndarray
         Image data.
-    cnn : str
+    cnn : str, optional
         'alexnet' (default)
             Generates CNN features from AlexNet architecture.
         'vgg'

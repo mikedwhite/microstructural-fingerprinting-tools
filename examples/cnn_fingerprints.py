@@ -1,6 +1,8 @@
 """Enables CNN flattened final convolution layer and CNN max-pooled final convolution layer.
 
 USAGE: Execute this script from within the `examples` directory.
+Comment/uncomment params as desired.
+There should be no more than one assignment per parameter.
 Run via terminal for progress bars.
 """
 
@@ -14,20 +16,33 @@ from mftools.assess.classify import train_svm, train_rf, train_ul, train_ssl
 from mftools.fingerprint.fingerprints import get_fingerprints_cnn
 from mftools.fingerprint.generate_features import generate_feature_cnn_flatten, generate_feature_cnn_maxpool
 
-from data_proc_dataset2 import cross_validation_split
+from data_proc import cross_validation_split_dataset1, cross_validation_split_dataset2
 
 
 if __name__ == '__main__':
 
-    params = {'input_path': 'data/dataset2/',
-              'output_path': 'out/',
-              'nclass': 3,
-              # 'feature_generator': generate_feature_cnn_flatten,
-              'feature_generator': generate_feature_cnn_maxpool,
-              'cnn': 'alexnet',
-              # 'cnn': 'vgg',
-              'niter': 10,
-              'ssl_ratio': .05}
+    params = {
+        # -- File paths --------------------------------------------
+        # 'input_path': 'data/dataset1/',
+        'input_path': 'data/dataset2/',
+        'output_path': 'out/',
+
+        # -- Number of classes -------------------------------------
+        # 'nclass': 2,
+        'nclass': 3,
+
+        # -- Feature extraction algorithm --------------------------
+        # 'feature_generator': generate_feature_cnn_flatten,
+        'feature_generator': generate_feature_cnn_maxpool,
+
+        # -- CNN architecture --------------------------------------
+        'cnn': 'alexnet',
+        # 'cnn': 'vgg',
+
+        # -- Classifier parameters ---------------------------------
+        'niter': 10,
+        'ssl_ratio': .05
+    }
 
     INPUT_PATH = params['input_path']
     OUTPUT_PATH = params['output_path']
@@ -53,11 +68,11 @@ if __name__ == '__main__':
         label_list = pickle.load(f)
 
     fingerprints = get_fingerprints_cnn(INPUT_PATH, micro_list, FEATURE_GENERATOR, CNN)
-    np.save(f'{OUTPUT_PATH}/cnn_fingerprints.npy', fingerprints)
-    fingerprints = np.load(f'{OUTPUT_PATH}/cnn_fingerprints.npy')
+    np.save(f'{OUTPUT_PATH}/fingerprints_cnn.npy', fingerprints)
+    fingerprints = np.load(f'{OUTPUT_PATH}/fingerprints_cnn.npy')
 
     micro_list_train_stack, micro_list_test_stack, label_list_train_stack, label_list_test_stack =\
-        cross_validation_split(micro_list, label_list, NITER)
+        cross_validation_split_dataset2(micro_list, label_list, NITER)
 
     for ITER in range(NITER):
 

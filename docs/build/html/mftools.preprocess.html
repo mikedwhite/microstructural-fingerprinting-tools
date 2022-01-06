@@ -100,14 +100,14 @@
 <p>Methods for binarising grayscale images.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mftools.preprocess.binarise.k_means">
-<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">k_means</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.k_means" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">mftools.preprocess.binarise.</span></span><span class="sig-name descname"><span class="pre">k_means</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nclust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mikedwhite/microstructural-fingerprinting-tools/blob/main/mftools/preprocess/binarise.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mftools.preprocess.binarise.k_means" title="Permalink to this definition"></a></dt>
 <dd><p>Return segmented image determined via <span class="math notranslate nohighlight">\(k\)</span>-means clustering, where the number of segmented regions is
-n_clusters. Setting n_clusters = 2 (default) returns a binarised image.</p>
+n_clusters. Setting <code class="docutils literal notranslate"><span class="pre">nclust</span> <span class="pre">=</span> <span class="pre">2</span></code> (default) returns a binarised image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image</strong> (<em>ndarray</em>) – Input image. Must be grayscale.</p></li>
-<li><p><strong>n_clusters</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of clusters to segment (2, by default).</p></li>
+<li><p><strong>nclust</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of clusters to segment (2, by default).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -127,7 +127,8 @@ n_clusters. Setting n_clusters = 2 (default) returns a binarised image.</p>
 <div class="math notranslate nohighlight">
 \[T = \mu(x,y) - k * \sigma(x,y),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu(x,y)\)</span> and <span class="math notranslate nohighlight">\(\sigma(x,y)\)</span> are the mean and standard deviation, respectively, of the square
-neighbourhood with side length window_size, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale factor.</p>
+neighbourhood with side length <code class="docutils literal notranslate"><span class="pre">window_size</span></code>, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale
+factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -175,8 +176,8 @@ neighbourhood with side length window_size, centred at pixel <span class="math n
 <div class="math notranslate nohighlight">
 \[T = \mu(x,y)*(1 + k * ((\sigma(x,y)/R) - 1)),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu(x,y)\)</span> and <span class="math notranslate nohighlight">\(\sigma(x,y)\)</span> are the mean and standard deviation, respectively, of the square
-neighbourhood with side length window_size, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span>, <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale factor and
-<span class="math notranslate nohighlight">\(R\)</span> is the dynamic range of standard deviation.</p>
+neighbourhood with side length <code class="docutils literal notranslate"><span class="pre">window_size</span></code>, centred at pixel <span class="math notranslate nohighlight">\((x,y)\)</span>, <span class="math notranslate nohighlight">\(k\)</span> is a tunable scale
+factor and <span class="math notranslate nohighlight">\(R\)</span> is the dynamic range of standard deviation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
